@@ -1,131 +1,88 @@
-import sidefolioAceternity from "public/images/sidefolio-aceternity-2.png";
-import sidefolioAceternity2 from "public/images/sidefolio-aceternity-2.png";
-import sidefolioAlgochurn from "public/images/sidefolio-algochurn.png";
-import sidefolioAlgochurn2 from "public/images/sidefolio-algochurn.png";
-import sidefolioMoonbeam from "public/images/sidefolio-moonbeam.png";
-import sidefolioMoonbeam2 from "public/images/sidefolio-moonbeam-2.png";
-import sidefolioTailwindMasterKit from "public/images/sidefolio-tailwindmasterkit.png";
-import sidefolioTailwindMasterKit2 from "public/images/sidefolio-tailwindmasterkit-2.png";
+import fireplaceImg from "/public/images/fireplace-dashboard.png";
+import boilerbaseImg from "/public/images/boilerbase-dashboard.png";
+import intellibetImg from "/public/images/intellibet-dashboard.png";
+import fileSystemImg from "/public/images/filesystem-dashboard.png";
+import geoGeniusImg from "/public/images/geogenius-dashboard.png";
+import unixShellImg from "/public/images/unixshell-dashboard.png";
+import photoshopImg from "/public/images/photoshop-dashboard.png";
+import laxMatchImg from "/public/images/laxmatch-dashboard.png";
+// import githubImg from "/public/images/github-placeholder-dashboard.png";
 
 export const products = [
   {
-    href: "https://aceternity.com",
-    title: "Aceternity",
+    href: "https://app.makefireplace.com",
+    title: "Fireplace",
     description:
-      "A design and development studio that focuses on building quality apps.",
-    thumbnail: sidefolioAceternity,
-    images: [sidefolioAceternity, sidefolioAceternity2],
-    stack: ["Next.js", "Tailwind CSS"],
-    slug: "aceternity",
-    content: (
-      <div>
-        <p>
-          Sit eiusmod ex mollit sit quis ad deserunt. Sint aliqua aliqua ullamco
-          dolore nulla amet tempor sunt est ipsum. Dolor laborum eiusmod
-          cupidatat consectetur velit ipsum. Deserunt nisi in culpa laboris
-          cupidatat elit velit aute mollit nisi. Officia ad exercitation laboris
-          non cupidatat duis esse velit ut culpa et.{" "}
-        </p>
-        <p>
-          Exercitation pariatur enim occaecat adipisicing nostrud adipisicing
-          Lorem tempor ullamco exercitation quis et dolor sint. Adipisicing sunt
-          sit aute fugiat incididunt nostrud consequat proident fugiat id.
-          Officia aliquip laborum labore eu culpa dolor reprehenderit eu ex enim
-          reprehenderit. Cillum Lorem veniam eu magna exercitation.
-          Reprehenderit adipisicing minim et officia enim et veniam Lorem
-          excepteur velit adipisicing et Lorem magna.
-        </p>{" "}
-      </div>
-    ),
+      "Community management platform for college student organizations. Built with React Native and Next.js, featuring organization discovery, member management, and community engagement tools.",
+    thumbnail: fireplaceImg,
+    stack: ["React Native", "Next.js", "Node.js", "PostgreSQL"],
+    slug: "fireplace",
+    githubLink: "https://github.com/makefireplace",
   },
   {
-    href: "https://algochurn.com",
-    title: "Algochurn",
+    href: "https://www.boilerbase.io",
+    title: "Boilerbase",
     description:
-      "Practice for technical interviews with hands on coding challenges.",
-    thumbnail: sidefolioAlgochurn,
-    images: [sidefolioAlgochurn, sidefolioAlgochurn2],
-    stack: ["Next.js", "Tailwind CSS"],
-    slug: "algochurn",
-    content: (
-      <div>
-        <p>
-          Sit eiusmod ex mollit sit quis ad deserunt. Sint aliqua aliqua ullamco
-          dolore nulla amet tempor sunt est ipsum. Dolor laborum eiusmod
-          cupidatat consectetur velit ipsum. Deserunt nisi in culpa laboris
-          cupidatat elit velit aute mollit nisi. Officia ad exercitation laboris
-          non cupidatat duis esse velit ut culpa et.{" "}
-        </p>
-        <p>
-          Exercitation pariatur enim occaecat adipisicing nostrud adipisicing
-          Lorem tempor ullamco exercitation quis et dolor sint. Adipisicing sunt
-          sit aute fugiat incididunt nostrud consequat proident fugiat id.
-          Officia aliquip laborum labore eu culpa dolor reprehenderit eu ex enim
-          reprehenderit. Cillum Lorem veniam eu magna exercitation.
-          Reprehenderit adipisicing minim et officia enim et veniam Lorem
-          excepteur velit adipisicing et Lorem magna.
-        </p>{" "}
-      </div>
-    ),
+      "Full-stack code generation tool and peer-to-peer boilerplate marketplace. Features automated personalized boilerplate generation, integrated payments with Stripe, and email notifications.",
+    thumbnail: boilerbaseImg,
+    stack: ["Next.js", "React", "Stripe", "GitHub API"],
+    slug: "boilerbase",
+    githubLink: "https://www.github.com/isaac-levine/boilerbase",
   },
   {
-    href: "https://gomoonbeam.com",
-    title: "Moonbeam",
+    href: "https://www.intellibet.io",
+    title: "Intellibet",
     description:
-      "Never write from scratch again with Moonbeam, your AI first writing tool",
-    thumbnail: sidefolioMoonbeam,
-    images: [sidefolioMoonbeam, sidefolioMoonbeam2],
-    stack: ["Next.js", "Tailwind CSS"],
-    slug: "moonbeam",
-    content: (
-      <div>
-        <p>
-          Sit eiusmod ex mollit sit quis ad deserunt. Sint aliqua aliqua ullamco
-          dolore nulla amet tempor sunt est ipsum. Dolor laborum eiusmod
-          cupidatat consectetur velit ipsum. Deserunt nisi in culpa laboris
-          cupidatat elit velit aute mollit nisi. Officia ad exercitation laboris
-          non cupidatat duis esse velit ut culpa et.{" "}
-        </p>
-        <p>
-          Exercitation pariatur enim occaecat adipisicing nostrud adipisicing
-          Lorem tempor ullamco exercitation quis et dolor sint. Adipisicing sunt
-          sit aute fugiat incididunt nostrud consequat proident fugiat id.
-          Officia aliquip laborum labore eu culpa dolor reprehenderit eu ex enim
-          reprehenderit. Cillum Lorem veniam eu magna exercitation.
-          Reprehenderit adipisicing minim et officia enim et veniam Lorem
-          excepteur velit adipisicing et Lorem magna.
-        </p>{" "}
-      </div>
-    ),
+      "AI-powered sports betting sentiment analysis tool featuring customizable watch lists, real-time sentiment tracking, and intuitive dashboard display of sentiment data.",
+    thumbnail: intellibetImg,
+    stack: ["Next.js", "React", "Tailwind", "Node.js", "Prisma", "PostgreSQL"],
+    slug: "intellibet",
+    githubLink: "https://www.github.com/isaac-levine/intellibet",
   },
   {
-    href: "https://tailwindmasterkit.com",
-    title: "Tailwind Master Kit",
+    href: "https://www.github.com/isaac-levine/file-system",
+    title: "File System",
     description:
-      "A beautiful and comprehensive Tailwind CSS components library for building modern websites and applications.",
-    thumbnail: sidefolioTailwindMasterKit,
-    images: [sidefolioTailwindMasterKit, sidefolioTailwindMasterKit2],
-    stack: ["Next.js", "Tailwind CSS"],
-    slug: "tailwindmasterkit",
-    content: (
-      <div>
-        <p>
-          Sit eiusmod ex mollit sit quis ad deserunt. Sint aliqua aliqua ullamco
-          dolore nulla amet tempor sunt est ipsum. Dolor laborum eiusmod
-          cupidatat consectetur velit ipsum. Deserunt nisi in culpa laboris
-          cupidatat elit velit aute mollit nisi. Officia ad exercitation laboris
-          non cupidatat duis esse velit ut culpa et.{" "}
-        </p>
-        <p>
-          Exercitation pariatur enim occaecat adipisicing nostrud adipisicing
-          Lorem tempor ullamco exercitation quis et dolor sint. Adipisicing sunt
-          sit aute fugiat incididunt nostrud consequat proident fugiat id.
-          Officia aliquip laborum labore eu culpa dolor reprehenderit eu ex enim
-          reprehenderit. Cillum Lorem veniam eu magna exercitation.
-          Reprehenderit adipisicing minim et officia enim et veniam Lorem
-          excepteur velit adipisicing et Lorem magna.
-        </p>{" "}
-      </div>
-    ),
+      "Built a complete file system using 1MB virtual disk that supports all basic file/directory operations.",
+    thumbnail: fileSystemImg,
+    stack: ["C", "Unix"],
+    githubLink: "https://www.github.com/isaac-levine/file-system",
+  },
+  {
+    href: "https://country-game-project.netlify.app/#/welcome",
+    title: "GeoGenius",
+    description:
+      "Country guessing game that also supports user authentication, search of users and countries with filters, following between users, travel bucket list creation, profile management, global leaderboard display, and more.",
+    thumbnail: geoGeniusImg,
+    stack: ["React", "Express.js", "Node.js", "MongoDB"],
+    slug: "geogenius",
+    githubLink: "https://www.github.com/isaac-levine/country-game",
+  },
+  {
+    href: "https://www.github.com/isaac-levine/unix-shell",
+    title: "Unix Shell",
+    description:
+      "Command-line interface written in C for Unix-like systems that supports all standard commands and advanced shell functionalities like sequencing, piping, and input/output redirection.",
+    thumbnail: unixShellImg,
+    stack: ["C", "Unix"],
+    githubLink: "https://www.github.com/isaac-levine/unix-shell",
+  },
+  {
+    href: "https://www.github.com/isaac-levine/photoshop",
+    title: "Photoshop Clone",
+    description:
+      "Image editing application that supports 10 advanced image operations and uploading/saving files to local machine.",
+    thumbnail: photoshopImg,
+    stack: ["Java", "JSwing", "JUnit"],
+    githubLink: "https://www.github.com/isaac-levine/photoshop",
+  },
+  {
+    href: "https://www.github.com/isaac-levine/lax-match",
+    title: "Lax-Match",
+    description:
+      "Interactive React quiz app that recommends a specific lacrosse stick to the user based on in-game tendencies and playstyle.",
+    thumbnail: laxMatchImg,
+    stack: ["React"],
+    githubLink: "https://www.github.com/isaac-levine/lax-match",
   },
 ];
