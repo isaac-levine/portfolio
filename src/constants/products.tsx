@@ -15,7 +15,7 @@ export const products = [
       "A design and development studio that focuses on building quality apps.",
     thumbnail: sidefolioAceternity,
     images: [sidefolioAceternity, sidefolioAceternity2],
-    stack: ["Nextjs", "Tailwindcss"],
+    stack: ["Next.js", "Tailwind CSS"],
     slug: "aceternity",
     content: (
       <div>
@@ -45,7 +45,7 @@ export const products = [
       "Practice for technical interviews with hands on coding challenges.",
     thumbnail: sidefolioAlgochurn,
     images: [sidefolioAlgochurn, sidefolioAlgochurn2],
-    stack: ["Nextjs", "Tailwindcss"],
+    stack: ["Next.js", "Tailwind CSS"],
     slug: "algochurn",
     content: (
       <div>
@@ -75,7 +75,7 @@ export const products = [
       "Never write from scratch again with Moonbeam, your AI first writing tool",
     thumbnail: sidefolioMoonbeam,
     images: [sidefolioMoonbeam, sidefolioMoonbeam2],
-    stack: ["Nextjs", "Tailwindcss"],
+    stack: ["Next.js", "Tailwind CSS"],
     slug: "moonbeam",
     content: (
       <div>
@@ -105,7 +105,7 @@ export const products = [
       "A beautiful and comprehensive Tailwind CSS components library for building modern websites and applications.",
     thumbnail: sidefolioTailwindMasterKit,
     images: [sidefolioTailwindMasterKit, sidefolioTailwindMasterKit2],
-    stack: ["Nextjs", "Tailwindcss"],
+    stack: ["Next.js", "Tailwind CSS"],
     slug: "tailwindmasterkit",
     content: (
       <div>
