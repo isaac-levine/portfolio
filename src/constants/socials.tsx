@@ -1,23 +1,35 @@
 import {
   IconBrandLinkedin,
   IconBrandTwitter,
-  IconBrandYoutube,
+  IconBrandGithub,
+  IconBook,
 } from "@tabler/icons-react";
 
 export const socials = [
   {
-    href: "https://twitter.com/mannupaaji",
-    label: "Twitter",
-    icon: IconBrandTwitter,
+    href: "https://github.com/isaac-levine",
+    label: "github",
+    icon: IconBrandGithub,
   },
   {
-    href: "https://linkedin.com/in/manuarora28",
-    label: "LinkedIn",
+    href: "https://linkedin.com/in/isaac-levine",
+    label: "linkedin",
     icon: IconBrandLinkedin,
   },
   {
-    href: "https://youtube.com/maninthere",
-    label: "YouTube",
-    icon: IconBrandYoutube,
+    href: "https://twitter.com/isaaclvn",
+    label: "twitter",
+    icon: IconBrandTwitter,
   },
+  {
+    href: "https://www.goodreads.com/user/show/168909888-isaac-levine",
+    label: "goodreads",
+    icon: IconBook,
+  },
+
+  // {
+  //   href: "https://youtube.com/maninthere",
+  //   label: "YouTube",
+  //   icon: IconBrandYoutube,
+  // },
 ];

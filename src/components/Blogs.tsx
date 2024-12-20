@@ -55,14 +55,14 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
               )}
             </AnimatePresence>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-20">
-              <Image
+              {/* <Image
                 src={blog.image}
                 alt="thumbnail"
                 height="200"
                 width="200"
                 objectFit="cover"
                 className="rounded-md object-cover h-40 w-60"
-              />
+              /> */}
               <div className="flex flex-col col-span-3">
                 <Heading className="text-lg md:text-lg lg:text-lg">
                   {blog.title}

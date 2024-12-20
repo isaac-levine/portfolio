@@ -10,7 +10,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blogs | Isaac Levine",
   description:
-    "Isaac Levine is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
+    "Isaac Levine is a software engineer and CS student at Northeastern University, building products at the intersection of tech and community. Follow his journey in software development, startups, and tech.",
 };
 
 export default async function Blog() {
@@ -20,10 +20,10 @@ export default async function Blog() {
   return (
     <Container>
       <span className="text-4xl">📝</span>
-      <Heading className="font-black pb-4">I write about technology</Heading>
+      <Heading className="font-black pb-4">Blog</Heading>
       <Paragraph className="pb-10">
-        Ever since <Highlight> I was a kid</Highlight>, I&apos;ve been
-        fascinated by technology.
+        I occasionally write about software engineering, project updates,
+        startups, technology, and more.
       </Paragraph>
       <Blogs blogs={data} />
     </Container>

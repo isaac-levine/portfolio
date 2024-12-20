@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 
 export default function About() {
   const images = [
-    "https://images.unsplash.com/photo-1692544350322-ac70cfd63614?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-    "https://images.unsplash.com/photo-1692374227159-2d3592f274c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
-    "https://images.unsplash.com/photo-1692005561659-cdba32d1e4a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "https://images.unsplash.com/photo-1692445381633-7999ebc03730?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    "/images/about/lacrosse.png",
+    "/images/about/grandcanyon.png",
+    "/images/about/dog.png",
+    "/images/about/ski.png",
   ];
   return (
     <div>
@@ -72,12 +72,12 @@ export default function About() {
       <div className="max-w-4xl">
         <Paragraph className="mt-4">
           Hey! I&apos;m Isaac Levine - a software engineer and CS senior at
-          Northeastern University. I build things that solve real problems and
-          occasionally write about what I learn along the way.
+          Northeastern University, and I&apos;m passionate about software,
+          startups, and tech.
         </Paragraph>
 
         <Paragraph className="mt-4">
-          Throughout my time in tech, I&apos;ve worked across DevOps/Cloud,
+          Throughout the past few years, I&apos;ve worked across DevOps/Cloud,
           Frontend, Backend, and Full-Stack roles. This broad experience helps
           me build better software and choose the right tools for each project.
         </Paragraph>
@@ -91,7 +91,7 @@ export default function About() {
             Fireplace
           </a>{" "}
           while finishing up my last year of school. You can follow my progress
-          and read my thoughts about software development on my blog.
+          and read my thoughts on my blog.
         </Paragraph>
 
         <Paragraph className="mt-4">

@@ -32,7 +32,7 @@ export const Sidebar = () => {
               <Navigation setOpen={setOpen} />
             </div>
             <div onClick={() => isMobile() && setOpen(false)}>
-              <Badge href="/resume" text="Read Resume" />
+              <Badge href="/resume" text="read resume" />
             </div>
           </motion.div>
         )}
@@ -83,6 +83,7 @@ export const Navigation = ({
       </Heading>
       {socials.map((link: Navlink) => (
         <Link
+          target="_blank"
           key={link.href}
           href={link.href}
           className={twMerge(
@@ -104,9 +105,10 @@ export const Navigation = ({
 
 const SidebarHeader = () => {
   return (
-    <div className="flex space-x-2">
+    // <div className="flex space-x-2">
+    <a href="/" className="flex space-x-2">
       <Image
-        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80"
+        src="/images/headshot.png"
         alt="Avatar"
         height="40"
         width="40"
@@ -114,8 +116,9 @@ const SidebarHeader = () => {
       />
       <div className="flex text-sm flex-col">
         <p className="font-bold text-primary">Isaac Levine</p>
-        <p className="font-light text-secondary">Developer</p>
+        <p className="font-light text-secondary">Backend Developer</p>
       </div>
-    </div>
+    </a>
+    // </div>
   );
 };

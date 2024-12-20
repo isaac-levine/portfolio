@@ -52,7 +52,7 @@ export function BlogLayout({
               {formatDate(meta.date)}
             </Paragraph>
           </time>
-          <div className="w-full mt-4 aspect-w-16 aspect-h-10 bg-gray-100 rounded-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
+          {/* <div className="w-full mt-4 aspect-w-16 aspect-h-10 bg-gray-100 rounded-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
             <Image
               src={meta.image}
               alt="thumbnail"
@@ -60,7 +60,7 @@ export function BlogLayout({
               width="800"
               className={`object-cover object-left-top w-full max-h-96`}
             />
-          </div>
+          </div> */}
         </header>
         <Prose className="mt-8">{children}</Prose>
       </article>

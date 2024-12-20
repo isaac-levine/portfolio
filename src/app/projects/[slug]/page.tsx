@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: "Projects | Isaac Levine",
       description:
-        "Isaac Levine is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
+        "Isaac Levine is a software engineer and CS student at Northeastern University, building products at the intersection of tech and community. Follow his journey in software development, startups, and tech.",
     };
   }
 }
