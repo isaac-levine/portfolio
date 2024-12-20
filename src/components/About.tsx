@@ -70,48 +70,41 @@ export default function About() {
       </div>
 
       <div className="max-w-4xl">
-        <Paragraph className=" mt-4">
-          Hey there, I&apos;m John Doe - a passionate developer, avid writer,
-          and a connoisseur of awesome design. Welcome to my corner of the
-          digital world!
-        </Paragraph>
-        <Paragraph className=" mt-4">
-          Since the early days of my journey, I&apos;ve been captivated by the
-          art of crafting exceptional digital experiences. As a developer, I
-          thrive on turning lines of code into functional and elegant solutions.
-          My goal is to not just create software, but to build digital marvels
-          that seamlessly merge form and function.
+        <Paragraph className="mt-4">
+          Hey! I&apos;m Isaac Levine - a software engineer and CS senior at
+          Northeastern University. I build things that solve real problems and
+          occasionally write about what I learn along the way.
         </Paragraph>
 
-        <Paragraph className=" mt-4">
-          But my journey doesn&apos;t stop at coding. With a heart full of words
-          and a mind brimming with ideas, I&apos;ve ventured into the realm of
-          writing. From tech articles that unravel complex concepts to creative
-          tales that ignite the imagination, I weave words to inform, entertain,
-          and inspire.
+        <Paragraph className="mt-4">
+          Throughout my time in tech, I&apos;ve worked across DevOps/Cloud,
+          Frontend, Backend, and Full-Stack roles. This broad experience helps
+          me build better software and choose the right tools for each project.
         </Paragraph>
-        <Paragraph className=" mt-4">
-          What sets me apart is my unwavering appreciation for design. I believe
-          that aesthetics and usability go hand in hand. My eye for awesome
-          design ensures that every project I undertake not only works
-          flawlessly under the hood but also looks stunning on the surface.
+
+        <Paragraph className="mt-4">
+          Right now, I&apos;m focused on building{" "}
+          <a
+            className="font-bold underline text-blue-400"
+            href="www.makefireplace.com"
+          >
+            Fireplace
+          </a>{" "}
+          while finishing up my last year of school. You can follow my progress
+          and read my thoughts about software development on my blog.
         </Paragraph>
-        <Paragraph className=" mt-4">
-          Through this website, I aim to share my insights, experiences, and
-          creations with you. Whether you&apos;re a fellow developer seeking
-          solutions, a fellow writer in search of inspiration, or simply someone
-          who appreciates the finer aspects of design, there&apos;s something
-          here for you.
-        </Paragraph>
-        <Paragraph className=" mt-4">
-          Join me on this journey of bytes and narratives, logic and creativity,
-          code and prose. Together, we can explore the boundless possibilities
-          of technology and storytelling, all while reveling in the sheer beauty
-          of thoughtful design.
-        </Paragraph>
-        <Paragraph className=" mt-4">
-          Thank you for being here, and I can&apos;t wait to embark on this
-          adventure with you.
+
+        <Paragraph className="mt-4">
+          When I&apos;m not coding, I play for Northeastern&apos;s Men&apos;s
+          Club Lacrosse team and am a big Boston sports fan. If you want to chat
+          about tech, startups, or anything else, feel free to reach out at{" "}
+          <a
+            className="font-bold underline text-blue-400"
+            href="mailto:isaacmlevine4@gmail.com"
+          >
+            isaacmlevine4@gmail.com
+          </a>
+          .
         </Paragraph>
       </div>
     </div>
