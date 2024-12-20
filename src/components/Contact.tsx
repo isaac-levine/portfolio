@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 
 const defaultFormState = {
   name: {
@@ -21,26 +20,7 @@ export const Contact = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    // Write your submit logic here
-    // emailjs
-    //   .send(
-    //     "YOUR_SERVICE_ID",
-    //     "YOUR_TEMPLATE_ID",
-    //     {
-    //       from_name: formData.name.value,
-    //       from_email: formData.email.value,
-    //       message: formData.message.value,
-    //     },
-    //     "YOUR_USER_ID"
-    //   )
-    //   .then(
-    //     (result: { text: any }) => {
-    //       console.log("Email successfully sent!", result.text);
-    //     },
-    //     (error: { text: any }) => {
-    //       console.log("Failed to send email.", error.text);
-    //     }
-    //   );
+    // Write submit logic here
     console.log(formData);
   };
   return (
