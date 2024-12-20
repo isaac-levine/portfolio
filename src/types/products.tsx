@@ -4,7 +4,7 @@ export type Product = {
   title: string;
   description: string;
   thumbnail: StaticImageData;
-  images?: StaticImageData[] | string[];
+  // images: StaticImageData[] | string[];
   href: string;
   slug?: string;
   stack?: string[];

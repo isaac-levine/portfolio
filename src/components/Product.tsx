@@ -37,7 +37,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
         />
         <div className="absolute bottom-0 bg-white h-40 w-full [mask-image:linear-gradient(to_bottom,transparent,white)]" />
       </motion.div>
-      <div className="flex flex-row justify-center my-8 flex-wrap">
+      {/* <div className="flex flex-row justify-center my-8 flex-wrap">
         {product.images.map((image, idx) => (
           <button
             onClick={() => setActiveImage(image)}
@@ -52,7 +52,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
             />
           </button>
         ))}
-      </div>
+      </div> */}
       <div className="flex lg:flex-row justify-between items-center flex-col mt-20">
         <Heading className="font-black mb-2 pb-1"> {product.title}</Heading>
         <div className="flex space-x-2 md:mb-1 mt-2 md:mt-0">
