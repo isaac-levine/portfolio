@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Container>
       <span className="text-4xl">👋</span>
-      <Heading className="font-black">Hello there! I&apos;m Isaac</Heading>
+      <Heading className="font-black">Hi there! I&apos;m Isaac</Heading>
       <Paragraph className="max-w-xl mt-4">
         I&apos;m a backend software engineer and CS student at Northeastern who
         loves <Highlight>building products</Highlight> that solve real problems.
