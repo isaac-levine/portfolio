@@ -19,10 +19,13 @@ export default function Projects() {
       <span className="text-4xl">✉️</span>
       <Heading className="font-black mb-2">Contact Me</Heading>
       <Paragraph className="mb-10 max-w-xl">
-        Reach out to me over email or fill up this contact form. I will get back
-        to you as soon as I can!{" "}
+        Feel free to reach out me via email, and I will get back to you as soon
+        as I can!{" "}
       </Paragraph>
-      <Contact />
+      <Paragraph className="font-bold mb-10 max-w-xl">
+        <a href="mailto:isaacmlevine4@gmail.com">isaacmlevine4@gmail.com</a>
+      </Paragraph>
+      {/* <Contact /> */}
     </Container>
   );
 }

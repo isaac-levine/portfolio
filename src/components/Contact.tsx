@@ -17,12 +17,32 @@ const defaultFormState = {
 };
 export const Contact = () => {
   const [formData, setFormData] = useState(defaultFormState);
+  const [status, setStatus] = useState("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    // Write submit logic here
-    console.log(formData);
+    setStatus("Sending...");
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name.value,
+        email: formData.email.value,
+        message: formData.message.value,
+      }),
+    });
+
+    if (response.ok) {
+      setStatus("Email sent successfully");
+      setFormData(defaultFormState);
+    } else {
+      setStatus("Failed to send email");
+    }
   };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="flex flex-col md:flex-row justify-between gap-5">
