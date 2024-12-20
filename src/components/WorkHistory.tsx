@@ -10,12 +10,13 @@ export const WorkHistory = () => {
     <div>
       {timeline.map((item, index) => (
         <div
-          className="flex md:flex-row flex-col space-y-10 md:space-y-0 space-x-10 my-20 relative"
+          className="flex flex-col md:flex-row md:space-y-0 space-y-10 my-20 relative"
           key={`timeline-${index}`}
         >
-          <Paragraph className="w-60">{item.date}</Paragraph>{" "}
-          {/* Increased width */}
-          <div>
+          <div className="flex-shrink-0 md:w-1/4">
+            <Paragraph>{item.date}</Paragraph>
+          </div>
+          <div className="flex-grow">
             <Heading
               as="h5"
               className="text-lg md:text-lg lg:text-lg text-emerald-500"

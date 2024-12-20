@@ -2,7 +2,7 @@ export const timeline = [
   {
     company: "Fireplace",
     title: "Software Engineer | Backend",
-    date: "Sep. – Dec. 2024",
+    date: "Sep. 2024 – Dec. 2024 (Part-Time)",
     description:
       "Architecting and scaling backend systems for a peer-to-peer invite system.",
     responsibilities: [
@@ -13,7 +13,7 @@ export const timeline = [
   {
     company: "CarGurus",
     title: "Software Engineer Intern | Full-Stack",
-    date: "Jun. – Aug. 2024",
+    date: "Jun. 2024 – Aug. 2024",
     description:
       "Optimizing and developing core React components and ensuring compliance.",
     responsibilities: [
@@ -26,7 +26,7 @@ export const timeline = [
   {
     company: "CarGurus",
     title: "Software Engineer Co-op | Backend",
-    date: "Jan. – Jun. 2024",
+    date: "Jan. 2024 – Jun. 2024",
     description:
       "Engineering backend microservices and improving matching algorithms.",
     responsibilities: [
@@ -39,7 +39,7 @@ export const timeline = [
   {
     company: "Wolters Kluwer",
     title: "Software Engineer Co-op | DevOps/Cloud",
-    date: "Jan. – Aug. 2023",
+    date: "Jan. 2023 – Aug. 2023",
     description:
       "Developing scripts and pipelines for security and observability.",
     responsibilities: [
@@ -62,7 +62,7 @@ export const timeline = [
   {
     company: "Northeastern University",
     title: "Teaching Assistant",
-    date: "Sep. – Dec. 2022",
+    date: "Sep. 2022 – Dec. 2022",
     description: "Assisting in teaching computer science fundamentals.",
     responsibilities: [
       "Led a weekly 34-student lab and conducted office hours on recursion, abstraction, data structures, and algorithms.",
