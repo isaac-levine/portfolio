@@ -28,7 +28,7 @@ export default function Home() {
         What I&apos;ve been working on
       </Heading>
       <Products />
-      <TechStack />
+      {/* <TechStack /> */}
     </Container>
   );
 }
