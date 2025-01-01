@@ -23,9 +23,16 @@ export const products = [
     href: "https://www.boilerbase.io",
     title: "Boilerbase",
     description:
-      "Full-stack code generation tool and peer-to-peer boilerplate marketplace. Features automated personalized boilerplate generation, integrated payments with Stripe, and email notifications.",
+      "Open-source boilerplate generator and community marketplace. Create custom full-stack SaaS templates or explore community-reviewed boilerplates. Features smart code generation, transparent community ratings, and modern stack support.",
     thumbnail: boilerbaseImg,
-    stack: ["Next.js", "React", "Stripe", "GitHub API"],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth.js",
+      "Tailwind",
+    ],
     slug: "boilerbase",
     githubLink: "https://www.github.com/isaac-levine/boilerbase",
   },
