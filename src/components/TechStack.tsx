@@ -6,6 +6,24 @@ import { twMerge } from "tailwind-merge";
 export const TechStack = () => {
   const stack = [
     {
+      title: "Java",
+      src: "/images/logos/java.png",
+
+      className: "h-10 w-20",
+    },
+    {
+      title: "Spring Boot",
+      src: "/images/logos/springboot.png",
+
+      className: "h-10 w-20",
+    },
+    {
+      title: "TypeScript",
+      src: "/images/logos/typescript.png",
+
+      className: "h-10 w-10",
+    },
+    {
       title: "Next.js",
       src: "/images/logos/next.png",
 
@@ -17,23 +35,29 @@ export const TechStack = () => {
 
       className: "h-10 w-10",
     },
-    {
-      title: "Figma",
-      src: "/images/logos/figma.png",
+    // {
+    //   title: "Figma",
+    //   src: "/images/logos/figma.png",
 
-      className: "h-10 w-8",
-    },
-    {
-      title: "Framer Motion",
-      src: "/images/logos/framer.webp",
+    //   className: "h-10 w-8",
+    // },
+    // {
+    //   title: "Framer Motion",
+    //   src: "/images/logos/framer.webp",
 
-      className: "h-10 w-10",
-    },
+    //   className: "h-10 w-10",
+    // },
     {
       title: "Node",
       src: "/images/logos/node.png",
 
       className: "h-10 w-12",
+    },
+    {
+      title: "React",
+      src: "/images/logos/react.png",
+
+      className: "h-10 w-10",
     },
     {
       title: "Tailwind",
@@ -54,7 +78,7 @@ export const TechStack = () => {
         as="h2"
         className="font-black text-lg md:text-lg lg:text-lg mt-20 mb-4"
       >
-        Tech Stack
+        My Tech Stack
       </Heading>
       <div className="flex flex-wrap">
         {stack.map((item) => (
