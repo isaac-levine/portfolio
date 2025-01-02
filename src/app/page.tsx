@@ -21,14 +21,18 @@ export default function Home() {
         <Highlight>devops</Highlight> roles, ultimately finding my passion in
         backend development and system architecture.
       </Paragraph>
+      <Paragraph className="max-w-xl mt-4">
+        Right now, I&apos;m learning <Highlight>Rust</Highlight> and am
+        specifically interested in building developer tools.
+      </Paragraph>
       <Heading
         as="h2"
-        className="font-black text-lg md:text-lg lg:text-lg mt-20 mb-4"
+        className="font-black text-lg md:text-lg lg:text-lg mt-10 mb-4"
       >
         What I&apos;ve been working on
       </Heading>
       <Products />
-      {/* <TechStack /> */}
+      <TechStack />
     </Container>
   );
 }
