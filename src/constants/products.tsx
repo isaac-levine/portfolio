@@ -53,7 +53,14 @@ export const products = [
     description:
       "AI-powered sports betting sentiment analysis tool featuring customizable watch lists, real-time sentiment tracking, and intuitive dashboard display of sentiment data.",
     thumbnail: intellibetImg,
-    stack: ["Next.js", "React", "Tailwind", "Node.js", "Prisma", "PostgreSQL"],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Stripe",
+      "Tailwind",
+    ],
     slug: "intellibet",
     githubLink: "https://www.github.com/isaac-levine/intellibet",
   },
