@@ -8,7 +8,7 @@ import Image from "next/image";
 import { Paragraph } from "./Paragraph";
 import { motion } from "framer-motion";
 
-export const Products = () => {
+export const Projects = () => {
   return (
     <div>
       <div className="grid grid-cols-1  gap-10">
