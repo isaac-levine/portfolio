@@ -6,9 +6,20 @@ import geoGeniusImg from "/public/images/geogenius-dashboard.png";
 import unixShellImg from "/public/images/unixshell-dashboard.png";
 import photoshopImg from "/public/images/photoshop-dashboard.png";
 import laxMatchImg from "/public/images/laxmatch-dashboard.png";
+import rust from "/public/images/nextjs-analyzer-dashboard.png";
 // import githubImg from "/public/images/github-placeholder-dashboard.png";
 
 export const products = [
+  {
+    href: "https://github.com/isaac-levine/nextjs-analyzer",
+    title: "[Work in Progress] NextJS Code Analyzer",
+    description:
+      "Building a Rust-based code analysis tool for NextJS. Currently, the tool generates an Abstract Syntax Tree for a given snippet of JavaScript/TypeScript code.",
+    thumbnail: rust,
+    stack: ["Rust"],
+    slug: "nextjs-analyzer",
+    githubLink: "https://github.com/isaac-levine/nextjs-analyzer",
+  },
   {
     href: "https://app.makefireplace.com",
     title: "Fireplace",
