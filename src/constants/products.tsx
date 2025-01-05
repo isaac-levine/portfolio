@@ -11,27 +11,7 @@ import rust from "/public/images/nextjs-analyzer-dashboard.png";
 
 export const products = [
   {
-    href: "https://github.com/isaac-levine/nextjs-analyzer",
-    title: "[Work in Progress] NextJS Code Analyzer",
-    description:
-      "Building a Rust-based code analysis tool for NextJS. Currently, the tool generates an Abstract Syntax Tree for a given snippet of JavaScript/TypeScript code.",
-    thumbnail: rust,
-    stack: ["Rust"],
-    slug: "nextjs-analyzer",
-    githubLink: "https://github.com/isaac-levine/nextjs-analyzer",
-  },
-  {
-    href: "https://app.makefireplace.com",
-    title: "Fireplace",
-    description:
-      "Community management platform for college student organizations. Built with React Native and Next.js, featuring organization discovery, member management, and community engagement tools.",
-    thumbnail: fireplaceImg,
-    stack: ["React Native", "Next.js", "Node.js", "PostgreSQL"],
-    slug: "fireplace",
-    githubLink: "https://github.com/makefireplace",
-  },
-  {
-    href: "https://www.boilerbase.io",
+    href: "https://www.boilerbase.io&utm_source=portfolio",
     title: "Boilerbase",
     description:
       "Open-source boilerplate generator and community marketplace. Create custom full-stack SaaS templates or explore community-reviewed boilerplates. Features smart code generation, transparent community ratings, and modern stack support.",
@@ -45,8 +25,30 @@ export const products = [
       "Tailwind",
     ],
     slug: "boilerbase",
-    githubLink: "https://www.github.com/isaac-levine/boilerbase",
+    githubLink: "https://www.boilerbase.io",
+    // githubLink: "https://www.github.com/isaac-levine/boilerbase",
   },
+  // {
+  //   href: "https://github.com/isaac-levine/nextjs-analyzer",
+  //   title: "[Work in Progress] NextJS Code Analyzer",
+  //   description:
+  //     "Building a Rust-based code analysis tool for NextJS. Currently, the tool generates an Abstract Syntax Tree for a given snippet of JavaScript/TypeScript code.",
+  //   thumbnail: rust,
+  //   stack: ["Rust"],
+  //   slug: "nextjs-analyzer",
+  //   githubLink: "https://github.com/isaac-levine/nextjs-analyzer",
+  // },
+  {
+    href: "https://app.makefireplace.com",
+    title: "Fireplace",
+    description:
+      "Community management platform for college student organizations. Built with React Native and Next.js, featuring organization discovery, member management, and community engagement tools.",
+    thumbnail: fireplaceImg,
+    stack: ["React Native", "Next.js", "Node.js", "PostgreSQL"],
+    slug: "fireplace",
+    githubLink: "https://github.com/makefireplace",
+  },
+
   {
     href: "https://www.intellibet.io",
     title: "Intellibet",
