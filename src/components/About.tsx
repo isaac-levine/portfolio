@@ -94,8 +94,8 @@ export default function About() {
           and read my thoughts on my blog.
         </Paragraph> */}
 
-        <Paragraph className="mt-4">
-          When I&apos;m not coding, I play for Northeastern&apos;s Men&apos;s
+        {/* <Paragraph className="mt-4">
+          Outside of work and school, I play for Northeastern&apos;s Men&apos;s
           Club Lacrosse team and am a big Boston sports fan. If you want to chat
           about tech, startups, or anything else, feel free to reach out at{" "}
           <a
@@ -105,7 +105,7 @@ export default function About() {
             isaacmlevine4@gmail.com
           </a>
           .
-        </Paragraph>
+        </Paragraph> */}
       </div>
     </div>
   );
