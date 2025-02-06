@@ -82,7 +82,7 @@ export default function About() {
           me build better software and choose the right tools for each project.
         </Paragraph>
 
-        <Paragraph className="mt-4">
+        {/* <Paragraph className="mt-4">
           Right now, I&apos;m focused on building{" "}
           <a
             className="font-bold underline text-blue-400"
@@ -92,7 +92,7 @@ export default function About() {
           </a>{" "}
           while finishing up my last year of school. You can follow my progress
           and read my thoughts on my blog.
-        </Paragraph>
+        </Paragraph> */}
 
         <Paragraph className="mt-4">
           When I&apos;m not coding, I play for Northeastern&apos;s Men&apos;s
