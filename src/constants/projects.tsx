@@ -72,7 +72,7 @@ export const projects: Project[] = [
     description:
       "Community management platform for college student organizations. Built with React Native and Next.js, featuring organization discovery, member management, and community engagement tools.",
     thumbnail: fireplaceImg,
-    stack: ["React Native", "Next.js", "Node.js", "PostgreSQL"],
+    stack: ["React.js", "Node.js", "React Native", "Tailwind", "PostgreSQL"],
     slug: "fireplace",
     githubLink: "https://github.com/makefireplace",
   },
