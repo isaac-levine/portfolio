@@ -6,12 +6,51 @@ import geoGeniusImg from "/public/images/geogenius-dashboard.png";
 import unixShellImg from "/public/images/unixshell-dashboard.png";
 import photoshopImg from "/public/images/photoshop-dashboard.png";
 import laxMatchImg from "/public/images/laxmatch-dashboard.png";
-import rust from "/public/images/nextjs-analyzer-dashboard.png";
+import findRxImg from "/public/images/findrx-dashboard.png";
+import frontstepImg from "/public/images/frontstep-dashboard.png";
+import { StaticImageData } from "next/image";
 // import githubImg from "/public/images/github-placeholder-dashboard.png";
 
-export const products = [
+export interface Project {
+  href: string;
+  title: string;
+  description: string;
+  thumbnail: StaticImageData;
+  stack: string[];
+  slug?: string;
+  githubLink?: string;
+}
+
+export const projects: Project[] = [
   {
-    href: "https://www.boilerbase.io&utm_source=portfolio",
+    href: "https://frontstep.vercel.app?utm_source=portfolio",
+    title: "Frontstep.ai",
+    description:
+      "AI-powered text automation for real estate agents that syncs with popular CRMS like CINC and FollowUpBoss to instantly qualify new leads 24/7. Built in <24 hours.",
+    thumbnail: frontstepImg,
+    stack: [
+      "React.js",
+      "TypeScript",
+      "Twilio API",
+      "Vite",
+      "Clerk Auth",
+      "Tailwind",
+    ],
+    slug: "findrx",
+    // githubLink: "https://frontstep.vercel.app?utm_source=portfolio",
+  },
+  {
+    href: "https://findrx.vercel.app?utm_source=portfolio",
+    title: "FindRx",
+    description:
+      "Landing page, dashboard, and intake form all rebuilt in one weekend for FindRx, a company that helps patients find medications in shortage.",
+    thumbnail: findRxImg,
+    stack: ["React.js", "TypeScript", "Vite", "Clerk Auth", "Tailwind"],
+    slug: "findrx",
+    // githubLink: "https://findrx.vercel.app?utm_source=portfolio",
+  },
+  {
+    href: "https://boilerbase.io?utm_source=portfolio",
     title: "Boilerbase",
     description:
       "Open-source boilerplate generator and community marketplace. Create custom full-stack SaaS templates or explore community-reviewed boilerplates. Features smart code generation, transparent community ratings, and modern stack support.",
@@ -25,19 +64,8 @@ export const products = [
       "Tailwind",
     ],
     slug: "boilerbase",
-    githubLink: "https://www.boilerbase.io",
-    // githubLink: "https://www.github.com/isaac-levine/boilerbase",
+    githubLink: "https://www.github.com/isaac-levine/boilerbase",
   },
-  // {
-  //   href: "https://github.com/isaac-levine/nextjs-analyzer",
-  //   title: "[Work in Progress] NextJS Code Analyzer",
-  //   description:
-  //     "Building a Rust-based code analysis tool for NextJS. Currently, the tool generates an Abstract Syntax Tree for a given snippet of JavaScript/TypeScript code.",
-  //   thumbnail: rust,
-  //   stack: ["Rust"],
-  //   slug: "nextjs-analyzer",
-  //   githubLink: "https://github.com/isaac-levine/nextjs-analyzer",
-  // },
   {
     href: "https://app.makefireplace.com",
     title: "Fireplace",
@@ -50,7 +78,7 @@ export const products = [
   },
 
   {
-    href: "https://www.intellibet.io",
+    href: "https://intellibet.io?utm_source=portfolio",
     title: "Intellibet",
     description:
       "AI-powered sports betting sentiment analysis tool featuring customizable watch lists, real-time sentiment tracking, and intuitive dashboard display of sentiment data.",
@@ -64,16 +92,16 @@ export const products = [
       "Tailwind",
     ],
     slug: "intellibet",
-    githubLink: "https://www.github.com/isaac-levine/intellibet",
+    githubLink: "https://github.com/isaac-levine/intellibet",
   },
   {
-    href: "https://www.github.com/isaac-levine/file-system",
+    href: "https://github.com/isaac-levine/file-system",
     title: "File System",
     description:
       "Built a complete file system using 1MB virtual disk that supports all basic file/directory operations.",
     thumbnail: fileSystemImg,
     stack: ["C", "Unix"],
-    githubLink: "https://www.github.com/isaac-levine/file-system",
+    githubLink: "https://github.com/isaac-levine/file-system",
   },
   {
     href: "https://country-game-project.netlify.app/#/welcome",
@@ -83,33 +111,33 @@ export const products = [
     thumbnail: geoGeniusImg,
     stack: ["React", "Express.js", "Node.js", "MongoDB"],
     slug: "geogenius",
-    githubLink: "https://www.github.com/isaac-levine/country-game",
+    githubLink: "https://github.com/isaac-levine/country-game",
   },
   {
-    href: "https://www.github.com/isaac-levine/unix-shell",
+    href: "https://github.com/isaac-levine/unix-shell",
     title: "Unix Shell",
     description:
       "Command-line interface written in C for Unix-like systems that supports all standard commands and advanced shell functionalities like sequencing, piping, and input/output redirection.",
     thumbnail: unixShellImg,
     stack: ["C", "Unix"],
-    githubLink: "https://www.github.com/isaac-levine/unix-shell",
+    githubLink: "https://github.com/isaac-levine/unix-shell",
   },
   {
-    href: "https://www.github.com/isaac-levine/photoshop",
+    href: "https://github.com/isaac-levine/photoshop",
     title: "Photoshop Clone",
     description:
       "Image editing application that supports 10 advanced image operations and uploading/saving files to local machine.",
     thumbnail: photoshopImg,
     stack: ["Java", "JSwing", "JUnit"],
-    githubLink: "https://www.github.com/isaac-levine/photoshop",
+    githubLink: "https://github.com/isaac-levine/photoshop",
   },
   {
-    href: "https://www.github.com/isaac-levine/lax-match",
+    href: "https://github.com/isaac-levine/lax-match",
     title: "Lax-Match",
     description:
       "Interactive React quiz app that recommends a specific lacrosse stick to the user based on in-game tendencies and playstyle.",
     thumbnail: laxMatchImg,
     stack: ["React"],
-    githubLink: "https://www.github.com/isaac-levine/lax-match",
+    githubLink: "https://github.com/isaac-levine/lax-match",
   },
 ];

@@ -18,12 +18,11 @@ export default function Home() {
       <Paragraph className="max-w-xl mt-4">
         I&apos;ve worked across <Highlight>frontend</Highlight>,{" "}
         <Highlight>backend</Highlight>, <Highlight>full-stack</Highlight>, and{" "}
-        <Highlight>devops</Highlight> roles, ultimately finding my passion in
-        backend development and system architecture.
+        <Highlight>devops</Highlight> roles before finding my passion in backend
+        development and distributed systems.
       </Paragraph>
       <Paragraph className="max-w-xl mt-4">
-        Right now, I&apos;m learning <Highlight>Rust</Highlight> and am
-        specifically interested in building developer tools.
+        Right now, I&apos;m specifically interested in Rust and developer tools.
       </Paragraph>
       <Heading
         as="h2"

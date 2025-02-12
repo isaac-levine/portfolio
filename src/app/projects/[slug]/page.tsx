@@ -2,10 +2,10 @@ import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { Highlight } from "@/components/Highlight";
 import { Paragraph } from "@/components/Paragraph";
-import { SingleProduct } from "@/components/Product";
+import { SingleProject } from "@/components/Product";
 import { Projects } from "@/components/Projects";
-import { products } from "@/constants/products";
-import { Product } from "@/types/products";
+import { projects } from "@/constants/projects";
+import { Project } from "@/types/projects";
 import { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -16,7 +16,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
-  const product = products.find((p) => p.slug === slug) as Product | undefined;
+  const product = projects.find((p) => p.slug === slug) as Project | undefined;
   if (product) {
     return {
       title: product.title,
@@ -37,14 +37,15 @@ export default function SingleProjectPage({
   params: { slug: string };
 }) {
   const slug = params.slug;
-  const product = products.find((p) => p.slug === slug);
+  const product = projects.find((p) => p.slug === slug);
 
   if (!product) {
     redirect("/projects");
   }
   return (
     <Container>
-      <SingleProduct product={product} />
+      {/* <SingleProject project={product} /> */}
+      <div></div>
     </Container>
   );
 }
