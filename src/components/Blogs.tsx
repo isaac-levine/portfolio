@@ -6,15 +6,7 @@ import { Heading } from "./Heading";
 import { Paragraph } from "./Paragraph";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-
-function formatDate(dateString: string) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-}
+import { format } from "date-fns";
 
 export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -38,7 +30,7 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
 
             <div className="flex items-center">
               <span className="text-secondary mt-1 sm:mt-0 text-sm sm:text-base">
-                {formatDate(blog.date)}
+                {format(new Date(`${blog.date}T12:00:00Z`), "MMMM d, yyyy")}
               </span>
             </div>
           </Link>
