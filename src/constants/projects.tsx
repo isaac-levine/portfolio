@@ -9,7 +9,6 @@ import laxMatchImg from "/public/images/laxmatch-dashboard.png";
 import findRxImg from "/public/images/findrx-dashboard.png";
 import frontstepImg from "/public/images/frontstep-dashboard.png";
 import { StaticImageData } from "next/image";
-// import githubImg from "/public/images/github-placeholder-dashboard.png";
 
 export interface Project {
   href: string;
@@ -17,7 +16,7 @@ export interface Project {
   description: string;
   thumbnail: StaticImageData;
   stack: string[];
-  slug?: string;
+  slug: string;
   githubLink?: string;
 }
 
@@ -37,7 +36,6 @@ export const projects: Project[] = [
       "Tailwind",
     ],
     slug: "findrx",
-    // githubLink: "https://frontstep.vercel.app?utm_source=portfolio",
   },
   {
     href: "https://findrx.vercel.app?utm_source=portfolio",
@@ -47,7 +45,6 @@ export const projects: Project[] = [
     thumbnail: findRxImg,
     stack: ["React.js", "TypeScript", "Vite", "Clerk Auth", "Tailwind"],
     slug: "findrx",
-    // githubLink: "https://findrx.vercel.app?utm_source=portfolio",
   },
   {
     href: "https://boilerbase.io?utm_source=portfolio",
@@ -101,6 +98,7 @@ export const projects: Project[] = [
       "Built a complete file system using 1MB virtual disk that supports all basic file/directory operations.",
     thumbnail: fileSystemImg,
     stack: ["C", "Unix"],
+    slug: "file-system",
     githubLink: "https://github.com/isaac-levine/file-system",
   },
   {
@@ -120,6 +118,7 @@ export const projects: Project[] = [
       "Command-line interface written in C for Unix-like systems that supports all standard commands and advanced shell functionalities like sequencing, piping, and input/output redirection.",
     thumbnail: unixShellImg,
     stack: ["C", "Unix"],
+    slug: "unix-shell",
     githubLink: "https://github.com/isaac-levine/unix-shell",
   },
   {
@@ -129,6 +128,7 @@ export const projects: Project[] = [
       "Image editing application that supports 10 advanced image operations and uploading/saving files to local machine.",
     thumbnail: photoshopImg,
     stack: ["Java", "JSwing", "JUnit"],
+    slug: "photoshop",
     githubLink: "https://github.com/isaac-levine/photoshop",
   },
   {
@@ -138,6 +138,7 @@ export const projects: Project[] = [
       "Interactive React quiz app that recommends a specific lacrosse stick to the user based on in-game tendencies and playstyle.",
     thumbnail: laxMatchImg,
     stack: ["React"],
+    slug: "lax-match",
     githubLink: "https://github.com/isaac-levine/lax-match",
   },
 ];
