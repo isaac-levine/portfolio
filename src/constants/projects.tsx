@@ -26,7 +26,7 @@ export const projects: Project[] = [
     href: "https://frontstep.vercel.app?utm_source=portfolio",
     title: "Frontstep.ai",
     description:
-      "AI-powered text automation for real estate agents that syncs with popular CRMS like CINC and FollowUpBoss to instantly qualify new leads 24/7. Built in <24 hours.",
+      "AI-powered text automation for real estate agents that syncs with popular CRMS like CINC and FollowUpBoss to instantly qualify new leads 24/7.",
     thumbnail: frontstepImg,
     stack: [
       "React.js",
