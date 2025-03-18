@@ -11,6 +11,24 @@ export const TechStack = () => {
 
       className: "h-10 w-20",
     },
+    // {
+    //   title: "Python",
+    //   src: "/images/logos/python.png",
+
+    //   className: "h-10 w-20",
+    // },
+    {
+      title: "TypeScript",
+      src: "/images/logos/typescript.png",
+
+      className: "h-10 w-10",
+    },
+    {
+      title: "JavaScript",
+      src: "/images/logos/javascript.png",
+
+      className: "h-10 w-10",
+    },
     {
       title: "Spring Boot",
       src: "/images/logos/springboot.png",
@@ -18,8 +36,14 @@ export const TechStack = () => {
       className: "h-10 w-20",
     },
     {
-      title: "TypeScript",
-      src: "/images/logos/typescript.png",
+      title: "Node.js",
+      src: "/images/logos/node.png",
+
+      className: "h-10 w-12",
+    },
+    {
+      title: "AWS",
+      src: "/images/logos/aws.webp",
 
       className: "h-10 w-10",
     },
@@ -29,12 +53,7 @@ export const TechStack = () => {
 
       className: "h-10 w-14",
     },
-    {
-      title: "AWS",
-      src: "/images/logos/aws.webp",
 
-      className: "h-10 w-10",
-    },
     // {
     //   title: "Figma",
     //   src: "/images/logos/figma.png",
@@ -47,12 +66,7 @@ export const TechStack = () => {
 
     //   className: "h-10 w-10",
     // },
-    {
-      title: "Node",
-      src: "/images/logos/node.png",
 
-      className: "h-10 w-12",
-    },
     {
       title: "React",
       src: "/images/logos/react.png",

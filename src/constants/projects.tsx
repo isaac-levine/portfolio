@@ -12,7 +12,7 @@ import frontstepImg from "/public/images/frontstep-dashboard2.png";
 import { StaticImageData } from "next/image";
 
 export interface Project {
-  href: string;
+  href?: string;
   title: string;
   description: string;
   thumbnail: StaticImageData;
@@ -24,7 +24,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     href: "https://frontstep.ai?utm_source=portfolio",
-    title: "Frontstep.ai",
+    title: "frontstep.ai",
     description:
       "AI-powered text automation for real estate agents that syncs with popular CRMS like CINC and FollowUpBoss to instantly qualify new leads 24/7.",
     thumbnail: frontstepImg,
@@ -40,7 +40,7 @@ export const projects: Project[] = [
   },
   {
     href: "https://findrx.vercel.app?utm_source=portfolio",
-    title: "FindRx",
+    title: "findrx.org",
     description:
       "Landing page, dashboard, and intake form all rebuilt in one weekend for FindRx, a company that helps patients find medications in shortage.",
     thumbnail: findRxImg,
@@ -49,7 +49,7 @@ export const projects: Project[] = [
   },
   {
     href: "https://boilerbase.io?utm_source=portfolio",
-    title: "Boilerbase",
+    title: "boilerbase.io",
     description:
       "Open-source boilerplate generator and community marketplace. Create custom full-stack SaaS templates or explore community-reviewed boilerplates. Features smart code generation, transparent community ratings, and modern stack support.",
     thumbnail: boilerbaseImg,
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   },
   {
     href: "https://app.makefireplace.com",
-    title: "Fireplace",
+    title: "makefireplace.com",
     description:
       "Community management platform for college student organizations. Built with React Native and Next.js, featuring organization discovery, member management, and community engagement tools.",
     thumbnail: fireplaceImg,
@@ -77,7 +77,7 @@ export const projects: Project[] = [
 
   {
     href: "https://intellibet.io?utm_source=portfolio",
-    title: "Intellibet",
+    title: "intellibet.io",
     description:
       "AI-powered sports betting sentiment analysis tool featuring customizable watch lists, real-time sentiment tracking, and intuitive dashboard display of sentiment data.",
     thumbnail: intellibetImg,
@@ -93,7 +93,6 @@ export const projects: Project[] = [
     githubLink: "https://github.com/isaac-levine/intellibet",
   },
   {
-    href: "https://github.com/isaac-levine/file-system",
     title: "File System",
     description:
       "Built a complete file system using 1MB virtual disk that supports all basic file/directory operations.",
@@ -113,7 +112,6 @@ export const projects: Project[] = [
     githubLink: "https://github.com/isaac-levine/country-game",
   },
   {
-    href: "https://github.com/isaac-levine/unix-shell",
     title: "Unix Shell",
     description:
       "Command-line interface written in C for Unix-like systems that supports all standard commands and advanced shell functionalities like sequencing, piping, and input/output redirection.",
@@ -123,7 +121,6 @@ export const projects: Project[] = [
     githubLink: "https://github.com/isaac-levine/unix-shell",
   },
   {
-    href: "https://github.com/isaac-levine/photoshop",
     title: "Photoshop Clone",
     description:
       "Image editing application that supports 10 advanced image operations and uploading/saving files to local machine.",
@@ -133,7 +130,6 @@ export const projects: Project[] = [
     githubLink: "https://github.com/isaac-levine/photoshop",
   },
   {
-    href: "https://github.com/isaac-levine/lax-match",
     title: "Lax-Match",
     description:
       "Interactive React quiz app that recommends a specific lacrosse stick to the user based on in-game tendencies and playstyle.",

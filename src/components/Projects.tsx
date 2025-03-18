@@ -41,13 +41,15 @@ export const Projects = () => {
                       {project.title}
                     </h1>
                     <div className="flex gap-2">
-                      <Link
-                        href={project.href}
-                        className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                        target="_blank"
-                      >
-                        <FaExternalLinkAlt className="w-4 h-4 text-gray-600" />
-                      </Link>
+                      {project.href && (
+                        <Link
+                          href={project.href}
+                          className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                          target="_blank"
+                        >
+                          <FaExternalLinkAlt className="w-4 h-4 text-gray-600" />
+                        </Link>
+                      )}
                       {project.githubLink && (
                         <Link
                           href={project.githubLink}
