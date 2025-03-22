@@ -5,6 +5,7 @@ import { Paragraph } from "@/components/Paragraph";
 import { Projects } from "@/components/Projects";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Projects | Isaac Levine",
@@ -16,11 +17,21 @@ export default function ProjectPage() {
   return (
     <Container>
       <span className="text-4xl">🚀</span>
-      <Heading className="font-black mb-10">
+      <Heading className="font-black mb-4">
         {" "}
         What I&apos;ve been working on
       </Heading>
-
+      <Paragraph className="mb-8">
+        You can find more projects on my{" "}
+        <Link
+          className="underline text-blue-500"
+          href="https://github.com/isaac-levine"
+          target="_blank"
+        >
+          GitHub
+        </Link>
+        .
+      </Paragraph>
       <Projects />
     </Container>
   );
