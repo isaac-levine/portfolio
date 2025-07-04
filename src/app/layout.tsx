@@ -12,9 +12,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Isaac Levine - Backend Developer",
+  title: "Isaac Levine - Software Engineer",
   description:
-    "Isaac Levine is a software engineer and CS student at Northeastern University, building products at the intersection of tech and community. Follow his journey in software development, startups, and tech.",
+    "Isaac Levine is a software engineer at CarGurus and Northeastern University alum.",
 };
 
 export default function RootLayout({
