@@ -9,20 +9,41 @@ import Image from "next/image";
 export default function Home() {
   return (
     <Container>
-      <span className="text-4xl">👋</span>
-      <Heading className="font-black">I&apos;m Isaac</Heading>
+      <div className="flex justify-start mb-6">
+        <Image
+          src="/images/headshot.png"
+          alt="Isaac Levine"
+          width={150}
+          height={150}
+          className="rounded-full border-2 border-black-200 shadow-lg"
+        />
+      </div>
+      <Heading
+        as="h1"
+        className="font-black text-lg md:text-lg lg:text-lg mt-10 mb-4"
+      >
+        Isaac Levine
+      </Heading>
       <Paragraph className="max-w-xl mt-4">
-        I&apos;m a backend software engineer and CS student at Northeastern who
-        loves <Highlight>building products</Highlight> that solve real problems.
+        I&apos;m a recent CS graduate from Northeastern University and a backend
+        software engineer at CarGurus. I&apos;ve shipped products across
+        Frontend, Backend, Full-stack, and DevOps roles for startups and large
+        companies alike.
       </Paragraph>
       <Paragraph className="max-w-xl mt-4">
-        I&apos;ve worked across <Highlight>frontend</Highlight>,{" "}
-        <Highlight>backend</Highlight>, <Highlight>full-stack</Highlight>, and{" "}
-        <Highlight>devops</Highlight> roles before finding my passion in backend
-        development and distributed systems.
-      </Paragraph>
-      <Paragraph className="max-w-xl mt-4">
-        Right now, I&apos;m specifically interested in Rust and developer tools.
+        Right now, I&apos;m building{" "}
+        <a
+          href="https://www.frontstep.ai"
+          style={{ color: "blue", textDecoration: "underline" }}
+          target="_blank"
+        >
+          frontstep.ai
+        </a>
+        , a platform for rental brokerages and property managers to automate
+        their inbound lead communication using conversational AI. It
+        automatically integrates with Zillow and responds to new leads based on
+        your qualification questions, notifying you when they are qualified and
+        ready for a showing.
       </Paragraph>
       <Heading
         as="h2"

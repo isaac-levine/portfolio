@@ -18,12 +18,12 @@ export default async function Blog() {
 
   return (
     <Container>
-      <span className="text-4xl">📝</span>
-      <Heading className="font-black pb-4">Blog</Heading>
-      <Paragraph className="pb-10">
+      {/* <span className="text-4xl">📝</span> */}
+      <Heading className="font-black pb-4">Project Updates</Heading>
+      {/* <Paragraph className="pb-10">
         I occasionally write about software engineering, project updates,
         startups, technology, and more.
-      </Paragraph>
+      </Paragraph> */}
       <Blogs blogs={data} />
     </Container>
   );

@@ -8,22 +8,22 @@ import {
 export const socials = [
   {
     href: "https://github.com/isaac-levine",
-    label: "github",
+    label: "",
     icon: IconBrandGithub,
   },
   {
     href: "https://linkedin.com/in/isaac-levine",
-    label: "linkedin",
+    label: "",
     icon: IconBrandLinkedin,
   },
   {
     href: "https://twitter.com/isaaclvn",
-    label: "twitter",
+    label: "",
     icon: IconBrandTwitter,
   },
   {
     href: "https://www.goodreads.com/user/show/168909888-isaac-levine",
-    label: "goodreads",
+    label: "",
     icon: IconBook,
   },
 

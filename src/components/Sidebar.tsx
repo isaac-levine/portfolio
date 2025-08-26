@@ -3,12 +3,9 @@ import { navlinks } from "@/constants/navlinks";
 import { Navlink } from "@/types/navlink";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { Heading } from "./Heading";
-import { socials } from "@/constants/socials";
-import { Badge } from "./Badge";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconLayoutSidebarRightCollapse } from "@tabler/icons-react";
 import { isMobile } from "@/lib/utils";
@@ -31,9 +28,9 @@ export const Sidebar = () => {
               <SidebarHeader />
               <Navigation setOpen={setOpen} />
             </div>
-            <div onClick={() => isMobile() && setOpen(false)}>
+            {/* <div onClick={() => isMobile() && setOpen(false)}>
               <Badge href="/resume" text="read resume" />
-            </div>
+            </div> */}
           </motion.div>
         )}
       </AnimatePresence>
@@ -77,28 +74,6 @@ export const Navigation = ({
           <span>{link.label}</span>
         </Link>
       ))}
-
-      <Heading as="p" className="text-sm md:text-sm lg:text-sm pt-10 px-2">
-        Socials
-      </Heading>
-      {socials.map((link: Navlink) => (
-        <Link
-          target="_blank"
-          key={link.href}
-          href={link.href}
-          className={twMerge(
-            "text-secondary hover:text-primary transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
-          )}
-        >
-          <link.icon
-            className={twMerge(
-              "h-4 w-4 flex-shrink-0",
-              isActive(link.href) && "text-sky-500"
-            )}
-          />
-          <span>{link.label}</span>
-        </Link>
-      ))}
     </div>
   );
 };
@@ -116,7 +91,7 @@ const SidebarHeader = () => {
       />
       <div className="flex text-sm flex-col">
         <p className="font-bold text-primary">Isaac Levine</p>
-        <p className="font-light text-secondary">Backend Developer</p>
+        <p className="font-light text-secondary">Software Engineer</p>
       </div>
     </a>
     // </div>
