@@ -31,7 +31,7 @@ export default function Home() {
         Today, I work as a software engineer at CarGurus, where I help build the product data platform.
       </Paragraph>
       <Paragraph className="max-w-xl mt-4">
-        I've worked in Frontend, Backend, Full-stack, and DevOps roles for both startups and large companies. Sometimes I'll write about what I'm working on here, and you can find some of my past projects below, with more on my <a href="https://github.com/isaac-levine" style={{ color: "blue", textDecoration: "underline" }} target="_blank">GitHub</a>.
+        I&apos;ve worked in Frontend, Backend, Full-stack, and DevOps roles for both startups and large companies. Sometimes I&apos;ll write about what I&apos;m working on here, and you can find some of my past projects below, with more on my <a href="https://github.com/isaac-levine" style={{ color: "blue", textDecoration: "underline" }} target="_blank">GitHub</a>.
 
       </Paragraph>
       <Heading
