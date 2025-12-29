@@ -1,10 +1,8 @@
-import { Contact } from "@/components/Contact";
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
-import { Highlight } from "@/components/Highlight";
 import { Paragraph } from "@/components/Paragraph";
+import { socials } from "@/constants/socials";
 import { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Contact | Isaac Levine",
@@ -15,11 +13,26 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <Container>
-      <Heading className="font-black mb-2">Contact Me</Heading>
-      <Paragraph className="font-bold my-10 max-w-xl">
-        <a href="mailto:isaac@frontstep.ai">isaac@frontstep.ai</a>
+      <Heading className="font-black mb-10">Contact Me</Heading>
+      <Paragraph className="mb-10 max-w-xl">
+        <a href="mailto:isaacmlevine4@gmail.com">isaacmlevine4@gmail.com</a>
       </Paragraph>
-      {/* <Contact /> */}
+      <div className="flex items-center gap-4">
+        {socials.map((social, index) => {
+          const Icon = social.icon;
+          return (
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-500 hover:text-neutral-800 transition-colors"
+            >
+              <Icon size={24} />
+            </a>
+          );
+        })}
+      </div>
     </Container>
   );
 }

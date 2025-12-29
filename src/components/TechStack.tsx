@@ -92,7 +92,7 @@ export const TechStack = () => {
         as="h2"
         className="font-black text-lg md:text-lg lg:text-lg mt-20 mb-4"
       >
-        My Tech Stack
+        Tech Stack
       </Heading>
       <div className="flex flex-wrap">
         {stack.map((item) => (

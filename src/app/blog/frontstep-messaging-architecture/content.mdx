@@ -1,0 +1,122 @@
+import { BlogLayout } from "@/components/BlogLayout";
+
+export const meta = {
+  date: "2025-11-28",
+  title: "[frontstep.ai] Messaging Architecture",
+};
+
+export default (props) => <BlogLayout meta={meta} {...props} />;
+
+## Overview
+
+Frontstep.ai processes incoming leads from platforms like Zillow, automatically qualifies them through AI-powered conversations, and delivers fully qualified leads back to real estate agents. Here's how the system works end-to-end.
+
+## Architecture Flow
+
+The system is designed around a message queue pattern that ensures reliable processing even under high load. When a new lead inquiry arrives, it flows through several stages before a response is generated and sent back to the lead.
+
+<Mermaid chart={`sequenceDiagram
+    participant Zillow as Zillow Platform
+    participant Client as Client Gmail
+    participant Mailgun as Mailgun Server
+    participant Webhook as Webhook Handler
+    participant Queue as Message Queue
+    participant Processor as Message Processor
+    participant AI as AI Service
+    participant Email as Email Service
+    participant Lead as Lead
+
+    Zillow->>Client: Email notification (lead inquiry)
+    Note over Client: Gmail forwarding rule<br/>automatically forwards
+    Client->>Mailgun: Forwarded email
+    Mailgun->>Webhook: POST /api/webhooks/mailgun<br/>(parsed email data)
+    Webhook->>Webhook: Parse email contents<br/>(extract lead info, message)
+    Webhook->>Queue: Store unprocessed message
+    Webhook-->>Mailgun: 200 OK
+    
+    Queue->>Processor: Process message
+    Processor->>Processor: Resolve conversation<br/>(find/create lead)
+    Processor->>Processor: Save message to DB
+    Processor->>AI: Generate response
+    
+    AI->>AI: Analyze conversation context
+    AI->>AI: Check unanswered questions
+    AI->>AI: Generate response with guardrails
+    AI-->>Processor: AI response content
+    
+    Processor->>Email: Send response
+    Email->>Lead: Deliver email/SMS
+    Email-->>Processor: Delivery confirmed
+    Processor->>Queue: Mark as processed`} />
+
+## Components
+
+### Email Ingestion (Zillow → Mailgun → Webhook)
+
+When a new lead inquiry arrives on Zillow, the platform sends an email notification to the realtor's inbox. The realtor has configured a Gmail forwarding rule that automatically forwards these emails to a Frontstep-managed domain.
+
+Mailgun receives these forwarded emails and parses them, extracting structured data like sender, recipient, subject, and body. It then sends this parsed data to our webhook endpoint via HTTP POST.
+
+### Webhook Handler
+
+The webhook handler receives the parsed email data from Mailgun and performs initial processing:
+
+- **Email Parsing**: Extracts lead information (name, contact info, property details) from the email body
+- **Message Extraction**: Pulls out the actual inquiry message from the lead
+- **Queue Storage**: Stores the unprocessed message in a message queue for asynchronous processing
+
+The handler responds immediately with a 200 OK to Mailgun, ensuring the email provider doesn't retry the webhook.
+
+### Message Queue
+
+The message queue decouples email ingestion from message processing. This design allows:
+
+- **Reliability**: Messages persist even if the processor is temporarily unavailable
+- **Scalability**: Multiple processors can consume messages in parallel
+- **Resilience**: Failed processing attempts can be retried without losing the original message
+
+### Message Processor
+
+The message processor pulls messages from the queue and handles the core business logic:
+
+1. **Conversation Resolution**: Determines if this is a new lead or part of an existing conversation by matching contact information
+2. **Database Storage**: Saves the incoming message to the database, maintaining conversation history
+3. **AI Integration**: Sends the conversation context to the AI service to generate an appropriate response
+
+### AI Service
+
+The AI service is responsible for generating intelligent, context-aware responses:
+
+- **Context Analysis**: Reviews the entire conversation history to understand what has been discussed
+- **Question Tracking**: Identifies which qualification questions have been answered and which remain unanswered
+- **Response Generation**: Creates a natural, helpful response that either asks the next unanswered question or acknowledges completed information
+- **Guardrails**: Ensures responses are appropriate, professional, and aligned with the realtor's configured questions
+
+### Email Service
+
+Once the AI generates a response, the email service handles delivery:
+
+- **Channel Selection**: Determines whether to send via email or SMS based on the lead's preferences and the conversation history
+- **Message Delivery**: Sends the response through the appropriate channel
+- **Delivery Confirmation**: Tracks delivery status and confirms successful transmission
+
+After successful delivery, the processor marks the message as processed in the queue, completing the cycle.
+
+## Design Decisions
+
+### Asynchronous Processing
+
+By using a message queue, we ensure that email ingestion (which needs to respond quickly to Mailgun) is decoupled from message processing (which involves AI generation and can take longer). This prevents webhook timeouts and allows the system to handle bursts of incoming leads.
+
+### Conversation Resolution
+
+The system maintains conversation state by matching contact information across messages. This allows the AI to maintain context throughout a multi-message conversation, asking follow-up questions and tracking progress toward full qualification.
+
+### AI Guardrails
+
+The AI service includes multiple layers of validation to ensure responses are appropriate and helpful. This includes checking that responses don't violate content policies, stay on-topic, and progress toward qualification goals.
+
+## Result
+
+This architecture enables Frontstep to process leads 24/7, respond instantly to inquiries, and maintain conversation context across multiple interactions. The system currently achieves a 25-30% qualification rate, meaning that roughly one in four leads completes the full qualification process without any manual intervention from the realtor.
+
