@@ -19,6 +19,7 @@ export interface Project {
   stack: string[];
   slug: string;
   githubLink?: string;
+  demo?: string;
 }
 
 export const projects: Project[] = [
@@ -36,7 +37,8 @@ export const projects: Project[] = [
       "Clerk Auth",
       "Tailwind",
     ],
-    slug: "findrx",
+    slug: "frontstep",
+    demo: "https://www.youtube.com/watch?v=vGrRwrFhySc",
   },
   {
     href: "https://findrx.vercel.app?utm_source=portfolio",

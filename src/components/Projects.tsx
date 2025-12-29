@@ -7,8 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Paragraph } from "./Paragraph";
 import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaLink, FaYoutube } from "react-icons/fa";
+import { TbWorld } from "react-icons/tb";
 
 export const Projects = () => {
   return (
@@ -47,7 +47,16 @@ export const Projects = () => {
                           className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                           target="_blank"
                         >
-                          <FaExternalLinkAlt className="w-4 h-4 text-gray-600" />
+                          <FaLink className="w-4 h-4 text-gray-600" />
+                        </Link>
+                      )}
+                      {project.demo && (
+                        <Link
+                          href={project.demo}
+                          className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                          target="_blank"
+                        >
+                          <FaYoutube className="w-4 h-4 text-gray-600" />
                         </Link>
                       )}
                       {project.githubLink && (
