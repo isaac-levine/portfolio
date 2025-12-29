@@ -8,7 +8,7 @@ import photoshopImg from "/public/images/photoshop-dashboard.png";
 import laxMatchImg from "/public/images/laxmatch-dashboard.png";
 import findRxImg from "/public/images/findrx-dashboard.png";
 // import frontstepImg from "/public/images/frontstep-dashboard.png";
-import frontstepImg from "/public/images/frontstep-dashboard2.png";
+import frontstepImg from "/public/images/frontstep-dashboard3.png";
 import { StaticImageData } from "next/image";
 
 export interface Project {
