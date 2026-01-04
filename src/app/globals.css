@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+  background-color: rgba(134, 239, 172, 0.5); /* light green */
+}
+
+/* Remove backtick quotes from inline code */
+.prose code::before,
+.prose code::after {
+  content: none;
+}
