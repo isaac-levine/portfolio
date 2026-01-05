@@ -39,9 +39,9 @@ export function Mermaid({ chart }: { chart: string }) {
   }, [chart, isClient]);
 
   if (!isClient) {
-    return <div className="my-8 flex justify-center overflow-x-auto" />;
+    return <div className="my-8 flex justify-center overflow-x-auto p-4 rounded shadow-[0_0_15px_rgba(0,0,0,0.15)]" />;
   }
 
-  return <div ref={ref} className="my-8 flex justify-center overflow-x-auto" />;
+  return <div ref={ref} className="my-8 flex justify-center overflow-x-auto p-4 rounded shadow-[0_0_15px_rgba(0,0,0,0.15)]" />;
 }
 
