@@ -5,6 +5,8 @@ import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { EasterEggs } from "@/components/EasterEggs";
+import { ProgressBar } from "@/components/ProgressBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,6 +40,8 @@ export default function RootLayout({
           </div>
         </div>
         <Analytics />
+        <EasterEggs />
+        <ProgressBar />
       </body>
     </html>
   );

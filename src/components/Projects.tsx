@@ -16,7 +16,7 @@ export const Projects = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project: Project, idx: number) => (
           <motion.div
-            key={project.href}
+            key={project.slug}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.2, delay: idx * 0.1 }}
@@ -44,7 +44,7 @@ export const Projects = () => {
                       {project.href && (
                         <Link
                           href={project.href}
-                          className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                          className="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110"
                           target="_blank"
                         >
                           <FaLink className="w-4 h-4 text-gray-600" />
@@ -53,7 +53,7 @@ export const Projects = () => {
                       {project.demo && (
                         <Link
                           href={project.demo}
-                          className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                          className="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110"
                           target="_blank"
                         >
                           <FaYoutube className="w-4 h-4 text-gray-600" />
@@ -62,7 +62,7 @@ export const Projects = () => {
                       {project.githubLink && (
                         <Link
                           href={project.githubLink}
-                          className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                          className="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110"
                           target="_blank"
                         >
                           <FaGithub className="w-4 h-4 text-gray-600" />

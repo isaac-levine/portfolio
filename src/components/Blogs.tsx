@@ -22,7 +22,7 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
           <Link
             href={`/blog/${blog.slug}`}
             className="group flex flex-col sm:flex-row sm:items-center sm:justify-between 
-              hover:bg-gray-50/50 rounded-lg transition-colors duration-200 p-4"
+              hover:bg-gray-50/50 rounded-lg transition-all duration-200 p-4 hover:scale-[1.02]"
           >
             <h1 className="text-base text-xl font-semibold text-gray-700 group-hover:text-primary">
               {blog.title}

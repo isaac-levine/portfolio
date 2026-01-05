@@ -102,7 +102,7 @@ export const TechStack = () => {
             width={`200`}
             height={`200`}
             alt={item.title}
-            className={twMerge("object-contain mr-4 mb-4", item.className)}
+            className={twMerge("object-contain mr-4 mb-4 transition-transform hover:scale-110", item.className)}
           />
         ))}
       </div>

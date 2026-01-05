@@ -4,7 +4,7 @@ import { Navlink } from "@/types/navlink";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconLayoutSidebarRightCollapse } from "@tabler/icons-react";
@@ -12,6 +12,20 @@ import { isMobile } from "@/lib/utils";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState(isMobile() ? false : true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // lg breakpoint is 1024px - close sidebar when screen becomes small
+      if (window.innerWidth < 1024) {
+        setOpen(false);
+      } else {
+        setOpen(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -68,7 +82,7 @@ export const Navigation = ({
           <link.icon
             className={twMerge(
               "h-4 w-4 flex-shrink-0",
-              isActive(link.href) && "text-sky-500"
+              isActive(link.href) && "text-blue-400"
             )}
           />
           <span>{link.label}</span>

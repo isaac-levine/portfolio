@@ -15,7 +15,7 @@ export default function Projects() {
     <Container>
       <Heading className="font-black mb-10">Contact Me</Heading>
       <Paragraph className="mb-10 max-w-xl">
-        <a href="mailto:isaacmlevine4@gmail.com">isaacmlevine4@gmail.com</a>
+        <a href="mailto:isaacmlevine4@gmail.com" className="inline-block transition-all hover:font-bold hover:scale-105">isaacmlevine4@gmail.com</a>
       </Paragraph>
       <div className="flex items-center gap-4">
         {socials.map((social, index) => {
@@ -26,7 +26,7 @@ export default function Projects() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-500 hover:text-neutral-800 transition-colors"
+              className="text-neutral-500 hover:text-neutral-800 transition-all hover:scale-110"
             >
               <Icon size={24} />
             </a>

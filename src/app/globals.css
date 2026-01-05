@@ -2,12 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::selection {
-  background-color: rgba(134, 239, 172, 0.5); /* light green */
+  background-color: rgba(96, 165, 250, 0.5); /* light blue */
 }
 
 /* Remove backtick quotes from inline code */
 .prose code::before,
 .prose code::after {
   content: none;
+}
+
+/* Link styling */
+a {
+  color: #3b82f6;
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: #2563eb;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(96, 165, 250, 0.6);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(96, 165, 250, 0.9);
 }
