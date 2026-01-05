@@ -32,7 +32,7 @@ export default function Home() {
           alt="Isaac Levine"
           width={160}
           height={160}
-          className="hidden md:block rounded-full shadow-lg flex-shrink-0 mr-8"
+          className="hidden md:block rounded-full shadow-lg flex-shrink-0 mr-8 w-auto h-auto"
         />
       </div>
       <Heading

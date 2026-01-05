@@ -31,6 +31,7 @@ export const Projects = () => {
                   src={project.thumbnail}
                   alt={`${project.title} thumbnail`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain hover:scale-[1.02] transition-transform duration-200"
                 />
               </div>
