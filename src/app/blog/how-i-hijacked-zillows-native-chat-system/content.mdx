@@ -9,6 +9,10 @@ export default (props) => <BlogLayout meta={meta} {...props} />;
 
 ## Introduction
 
+Our clients weren't paying for Zillow's API, but I found a way to integrate with their native chat system using email forwarding - here's how I built an AI agent that operates entirely within the native chat interface on Zillow.com.
+
+## Context
+
 In around March or April of 2025, Noah and I already knew based on our many conversations with realtors that prequalifying prospective tenants before scheduling a tour was a huge time-suck and pain point for them. We had decided that this was the problem we were going to solve. What we wrongly assumed however, was that their communication happened over email and text.
 
 While that was true for most of the lifecycle of the realtor-client relationship, it was not the case for the prequalification step specifically (the part beginning with a prospective client clicking "Request a Tour" or "I'm Interested" on a Zillow listing, and ending with that client actually getting scheduled for a tour and meeting the listing agent in person). As we talked to more and more realtors, it became apparent to us that conversations during the prequalification step happened directly in Zillow.com's chat interface. Realtors would confirm their move-in date, whether or not they had pets, their credit score range, etc., before scheduling the tour. They would even sometimes meet up for the in-person tour without ever taking the conversation off of the Zillow platform to email/text.
