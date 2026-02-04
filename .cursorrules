@@ -1,0 +1,55 @@
+# Blog Post Creation Guide
+
+When creating a new blog post, follow this structure:
+
+## File Structure
+
+Create a new directory in `src/app/blog/[slug]/` where `[slug]` is a kebab-case URL-friendly name (e.g., `my-new-blog-post`).
+
+Each blog post requires two files:
+
+### 1. `page.tsx`
+A simple wrapper that imports and renders the content:
+
+```tsx
+import Content from "./content.mdx";
+
+export default function Page() {
+  return <Content />;
+}
+```
+
+### 2. `content.mdx`
+The actual blog content file with this structure:
+
+```tsx
+import { BlogLayout } from "@/components/BlogLayout";
+
+export const meta = {
+  date: "YYYY-MM-DD", // Format: YYYY-MM-DD
+  title: "Your Blog Post Title",
+};
+
+export default (props) => <BlogLayout meta={meta} {...props} />;
+
+## Your Markdown Content Here
+
+Write your blog post content in markdown below the default export.
+```
+
+## Important Notes
+
+- The blog post will be automatically discovered by `getAllBlogs()` which looks for `*.mdx` or `*/content.mdx` files
+- Blogs are sorted by date (newest first)
+- Use kebab-case for the folder/slug name
+- Date format must be `YYYY-MM-DD`
+- The title in the meta object will be used for display
+- You can use markdown, images, and MDX components in the content
+- Images should be placed in `public/images/` and referenced with paths like `/images/your-image.png`
+- Keep the tone humble and avoid overly boastful language
+
+## Example
+
+For a blog post about "My Journey Learning TypeScript", create:
+- `src/app/blog/my-journey-learning-typescript/page.tsx`
+- `src/app/blog/my-journey-learning-typescript/content.mdx`
