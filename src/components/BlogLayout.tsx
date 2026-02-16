@@ -1,13 +1,12 @@
 "use client";
-import Head from "next/head";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { formatDate } from "../../lib/formatDate";
 import { Prose } from "@/components/Prose";
 import { Container } from "./Container";
 import { Heading } from "./Heading";
 import Link from "next/link";
 import { Paragraph } from "./Paragraph";
+
 
 function ArrowLeftIcon(props: any) {
   return (
@@ -31,39 +30,41 @@ export function BlogLayout({
   let router = useRouter();
 
   return (
-    <Container>
-      <article>
-        <header className="flex flex-col">
-          <Link
-            type="button"
-            href="/blog"
-            aria-label="Go back to articles"
-            className="group mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition  "
-          >
-            <ArrowLeftIcon className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 d" />
-          </Link>
+    <>
+      <Container>
+        <article>
+          <header className="flex flex-col items-center text-center">
+            <Link
+              type="button"
+              href="/blog"
+              aria-label="Go back to articles"
+              className="group mb-4 flex h-10 w-10 items-center justify-center rounded-full shadow-md transition self-start"
+              style={{
+                backgroundColor: "var(--card-bg)",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                border: "1px solid var(--border)",
+              }}
+            >
+              <ArrowLeftIcon
+                className="h-4 w-4 transition"
+                style={{ stroke: "var(--text-secondary)" }}
+              />
+            </Link>
 
-          <Heading className=" py-4">{meta.title}</Heading>
-          <time
-            dateTime={meta.date}
-            className="flex items-center text-base text-zinc-400 "
-          >
-            <Paragraph className=" text-zinc-700">
-              {formatDate(meta.date)}
-            </Paragraph>
-          </time>
-          {/* <div className="w-full mt-4 aspect-w-16 aspect-h-10 bg-gray-100 rounded-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
-            <Image
-              src={meta.image}
-              alt="thumbnail"
-              height="800"
-              width="800"
-              className={`object-cover object-left-top w-full max-h-96`}
-            />
-          </div> */}
-        </header>
-        <Prose className="mt-8">{children}</Prose>
-      </article>
-    </Container>
+            <Heading className="py-4 !text-3xl md:!text-4xl lg:!text-5xl">{meta.title}</Heading>
+            <time
+              dateTime={meta.date}
+              className="flex items-center text-base"
+              style={{ color: "var(--text-tertiary)" }}
+            >
+              <Paragraph>
+                {formatDate(meta.date)}
+              </Paragraph>
+            </time>
+          </header>
+          <Prose className="mt-12">{children}</Prose>
+        </article>
+      </Container>
+    </>
   );
 }

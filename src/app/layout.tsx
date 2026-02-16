@@ -1,4 +1,5 @@
-import { Sidebar } from "@/components/Sidebar";
+import { TopNav } from "@/components/TopNav";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -25,20 +26,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  }
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
-        className={twMerge(
-          inter.className,
-          "flex antialiased h-screen overflow-hidden bg-gray-100"
-        )}
+        className={twMerge(inter.className, "antialiased min-h-screen")}
       >
-        <Sidebar />
-        <div className="pl-4 lg:pl-2 lg:pt-2 bg-gray-100 flex-1 overflow-y-auto">
-          <div className="flex flex-col bg-white min-h-full lg:rounded-tl-xl border border-transparent lg:border-neutral-200">
-            <div className="flex-1">{children}</div>
-            <Footer />
+        <ThemeProvider>
+          <TopNav />
+          <div className="pt-[68px]">
+            <div
+              className="max-w-5xl mx-auto min-h-[calc(100vh-68px)] flex flex-col"
+            >
+              <div className="flex-1">{children}</div>
+              <Footer />
+            </div>
           </div>
-        </div>
+        </ThemeProvider>
         <Analytics />
         <EasterEggs />
         <ProgressBar />

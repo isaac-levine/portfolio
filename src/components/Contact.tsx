@@ -43,13 +43,27 @@ export const Contact = () => {
     }
   };
 
+  const inputClasses =
+    "focus:outline-none focus:ring-2 px-2 py-2 rounded-md text-sm w-full";
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="flex flex-col md:flex-row justify-between gap-5">
         <input
           type="text"
           placeholder="Your Name"
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full"
+          className={inputClasses}
+          style={{
+            backgroundColor: "var(--input-bg)",
+            color: "var(--text-primary)",
+            boxShadow: "0 0 0 2px transparent",
+          }}
+          onFocus={(e) =>
+            (e.currentTarget.style.boxShadow = `0 0 0 2px var(--input-focus-ring)`)
+          }
+          onBlur={(e) =>
+            (e.currentTarget.style.boxShadow = "0 0 0 2px transparent")
+          }
           value={formData.name.value}
           onChange={(e) => {
             setFormData({
@@ -64,7 +78,18 @@ export const Contact = () => {
         <input
           type="email"
           placeholder="Your email address"
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full"
+          className={inputClasses}
+          style={{
+            backgroundColor: "var(--input-bg)",
+            color: "var(--text-primary)",
+            boxShadow: "0 0 0 2px transparent",
+          }}
+          onFocus={(e) =>
+            (e.currentTarget.style.boxShadow = `0 0 0 2px var(--input-focus-ring)`)
+          }
+          onBlur={(e) =>
+            (e.currentTarget.style.boxShadow = "0 0 0 2px transparent")
+          }
           value={formData.email.value}
           onChange={(e) => {
             setFormData({
@@ -81,7 +106,18 @@ export const Contact = () => {
         <textarea
           placeholder="Your Message"
           rows={10}
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 mt-4 py-2 rounded-md text-sm text-neutral-700 w-full"
+          className={`${inputClasses} mt-4`}
+          style={{
+            backgroundColor: "var(--input-bg)",
+            color: "var(--text-primary)",
+            boxShadow: "0 0 0 2px transparent",
+          }}
+          onFocus={(e) =>
+            (e.currentTarget.style.boxShadow = `0 0 0 2px var(--input-focus-ring)`)
+          }
+          onBlur={(e) =>
+            (e.currentTarget.style.boxShadow = "0 0 0 2px transparent")
+          }
           value={formData.message.value}
           onChange={(e) => {
             setFormData({
@@ -95,7 +131,11 @@ export const Contact = () => {
         />
       </div>
       <button
-        className="w-full px-2 py-2 mt-4 bg-neutral-100 rounded-md font-bold text-neutral-500"
+        className="w-full px-2 py-2 mt-4 rounded-md font-bold"
+        style={{
+          backgroundColor: "var(--button-bg)",
+          color: "var(--button-text)",
+        }}
         type="submit"
       >
         Submit{" "}

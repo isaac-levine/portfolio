@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { Heading } from "./Heading";
 import { twMerge } from "tailwind-merge";
+import { useTheme } from "./ThemeProvider";
 
 export const TechStack = () => {
+  const { theme } = useTheme();
   const stack = [
     {
       title: "Java",
@@ -38,7 +42,7 @@ export const TechStack = () => {
     {
       title: "Node.js",
       src: "/images/logos/node.png",
-
+      darkInvert: true,
       className: "h-10 w-12",
     },
     {
@@ -50,7 +54,7 @@ export const TechStack = () => {
     {
       title: "Next.js",
       src: "/images/logos/next.png",
-
+      darkInvert: true,
       className: "h-10 w-14",
     },
 
@@ -76,13 +80,13 @@ export const TechStack = () => {
     {
       title: "Tailwind",
       src: "/images/logos/tailwind.png",
-
+      darkInvert: true,
       className: "h-10 w-24",
     },
     {
       title: "Vercel",
       src: "/images/logos/vercel.png",
-
+      darkInvert: true,
       className: "h-10 w-24",
     },
   ];
@@ -102,7 +106,12 @@ export const TechStack = () => {
             width={`200`}
             height={`200`}
             alt={item.title}
-            className={twMerge("object-contain mr-4 mb-4 transition-transform hover:scale-110", item.className)}
+            className={twMerge("object-contain mr-4 mb-4 transition-all hover:scale-110", item.className)}
+            style={
+              item.darkInvert && theme === "dark"
+                ? { filter: "invert(1) brightness(2)" }
+                : undefined
+            }
           />
         ))}
       </div>

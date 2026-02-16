@@ -8,7 +8,6 @@ import Image from "next/image";
 import { Paragraph } from "./Paragraph";
 import { motion } from "framer-motion";
 import { FaGithub, FaLink, FaYoutube } from "react-icons/fa";
-import { TbWorld } from "react-icons/tb";
 
 export const Projects = () => {
   return (
@@ -23,10 +22,23 @@ export const Projects = () => {
           >
             <div
               className="group flex flex-col space-y-3
-              hover:bg-gray-50 rounded-xl transition-all duration-200 p-3
-              shadow-sm hover:shadow-md border border-gray-100 max-w-xl h-[440px]"
+              rounded-xl transition-all duration-200 p-3
+              shadow-sm hover:shadow-md max-w-xl h-[440px]"
+              style={{
+                border: "1px solid var(--border)",
+                backgroundColor: "var(--card-bg)",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "var(--card-hover)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "var(--card-bg)")
+              }
             >
-              <div className="relative w-full h-[280px] bg-gray-50 rounded-lg overflow-hidden">
+              <div
+                className="relative w-full h-[280px] rounded-lg overflow-hidden"
+                style={{ backgroundColor: "var(--bg-secondary)" }}
+              >
                 <Image
                   src={project.thumbnail}
                   alt={`${project.title} thumbnail`}
@@ -45,28 +57,31 @@ export const Projects = () => {
                       {project.href && (
                         <Link
                           href={project.href}
-                          className="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110"
+                          className="p-2 rounded-full transition-all hover:scale-110"
+                          style={{ color: "var(--text-secondary)" }}
                           target="_blank"
                         >
-                          <FaLink className="w-4 h-4 text-gray-600" />
+                          <FaLink className="w-4 h-4" />
                         </Link>
                       )}
                       {project.demo && (
                         <Link
                           href={project.demo}
-                          className="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110"
+                          className="p-2 rounded-full transition-all hover:scale-110"
+                          style={{ color: "var(--text-secondary)" }}
                           target="_blank"
                         >
-                          <FaYoutube className="w-4 h-4 text-gray-600" />
+                          <FaYoutube className="w-4 h-4" />
                         </Link>
                       )}
                       {project.githubLink && (
                         <Link
                           href={project.githubLink}
-                          className="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110"
+                          className="p-2 rounded-full transition-all hover:scale-110"
+                          style={{ color: "var(--text-secondary)" }}
                           target="_blank"
                         >
-                          <FaGithub className="w-4 h-4 text-gray-600" />
+                          <FaGithub className="w-4 h-4" />
                         </Link>
                       )}
                     </div>
@@ -79,11 +94,11 @@ export const Projects = () => {
                   {project.stack?.map((stack: string) => (
                     <span
                       key={stack}
-                      className="text-xs px-3 py-1.5 rounded-full 
-                        bg-gradient-to-r from-primary/10 to-secondary/10 
+                      className="text-xs px-3 py-1.5 rounded-full
+                        bg-gradient-to-r from-primary/10 to-secondary/10
                         text-secondary font-medium
-                        hover:scale-105 transition-transform duration-200
-                        border border-gray-200/30"
+                        hover:scale-105 transition-transform duration-200"
+                      style={{ border: "1px solid var(--border)" }}
                     >
                       {stack}
                     </span>

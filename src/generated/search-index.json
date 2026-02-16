@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Home",
+    "href": "/",
+    "category": "Page",
+    "text": ""
+  },
+  {
+    "title": "Projects",
+    "href": "/projects",
+    "category": "Page",
+    "text": ""
+  },
+  {
+    "title": "Posts",
+    "href": "/blog",
+    "category": "Page",
+    "text": ""
+  },
+  {
+    "title": "Contact",
+    "href": "/contact",
+    "category": "Page",
+    "text": ""
+  },
+  {
+    "title": "Resume",
+    "href": "/resume",
+    "category": "Page",
+    "text": ""
+  },
+  {
+    "title": "[frontstep.ai] Migrating from a Serverless to Serverfull Architecture",
+    "href": "/blog/frontstep-vercel-to-railway",
+    "category": "Post",
+    "date": "2025-07-08",
+    "text": "date: \"2025-07-08\",\n  title: \"[frontstep.ai] Migrating from a Serverless to Serverfull Architecture\",\n};\n\nWhat is frontstep.ai?\n\nFrontstep.ai is a platform that allows real estate agents and property managers to qualify new leads on autopilot. It integrates directly with Zillow and upon receiving a new Zillow lead for a property, instantly reaches out to the lead via SMS or Email, and qualifies them through natural back and forth conversation, based on the qualification questions that the realtor has configured for the property or for their team. It automatically detects when qualification questions have been answered, checks them off, and notifies the realtor when all qualification questions have been answered, and the lead is ready for a showing.\n\nStarting Point\n\nI built frontstep.ai with the now-classic Vercel, Next.js, and TypeScript stack. I chose this stack mainly because of how easy the development experience is, and without too much concern because I still didn't know exactly what I wanted frontstep.ai to be.\n\n- frontstep is an extremely low traffic (for now) app but with an actual pretty low latency expectation (real-time)\n\nLimitation\n\nWhere things started to break down was live chat.\n\nWebSockets don’t play well with serverless:\n\n- Cold starts add unpredictable latency\n- Connections can drop because there’s no persistent server to “own” the state\n- Maintaining a long-lived, bidirectional channel between client and server is basically impossible\n\nI thought about faking it with polling, but that would have been wasteful and still not instant, especially with the low traffic that we have now.\n\nDecision\n\nSo, I decided to migrate from Vercel to Railway.\n\nThe frontend stack (Next.js, TypeScript, Tailwind) stayed exactly the same, but the backend shifted from ephemeral, stateless functions to a server that I control. That gave me:\n\n- Stable WebSocket connections that don’t die after a few minutes\n- Lower latency and more predictable performance\n- A much easier time building features like presence indicators, typing indicators, and reliable message delivery\n\nOn top of that, moving to a serverful architecture has also been a better fit for the growing number of webhook integrations we’ve been adding (Zillow, CRMs, calendars, etc). With serverless, handling these webhooks meant unpredictable cold starts and scaling issues, which could cause dropped or delayed events. With a persistent server on the other hand, webhooks land immediately, get processed reliably, and can maintain context between related events (e.g. several new messages come in within a few minutes from the same conversation).\n\nLesson Learned\n\nServerless is great. Vercel makes it insanely easy to get something live fast, and I think that’s a huge win for anyone testing an idea. For early prototypes or apps that don’t need real-time connections, it’s pretty much perfect. Even this website is a NextJS app deployed to Vercel.\n\nBut I also think a lot of people (myself included) reach for serverless by default when they don’t really need it. Most apps don’t need global edge deployments or scale-to-zero functions. A basic server often does the job just fine, and it’s usually simpler to run and reason about, especially when you're just starting out and the cost differences are negligible.\n\nFor frontstep.ai, starting on Vercel helped me move quickly at the beginning, but long-term, running on Railway makes more sense."
+  },
+  {
+    "title": "[frontstep.ai] How I Hijacked Zillow.com",
+    "href": "/blog/how-i-hijacked-zillows-native-chat-system",
+    "category": "Post",
+    "date": "2025-11-28",
+    "text": "date: \"2025-11-28\",\n  title: \"[frontstep.ai] How I Hijacked Zillow.com's Native Chat System\",\n};\n\nIntroduction\n\nOur clients weren't paying for Zillow's API, but I found a way to integrate with their native chat system using email forwarding - here's how I built an AI agent that operates entirely within the native chat interface on Zillow.com.\n\nContext\n\nIn around March or April of 2025, Noah and I already knew based on our many conversations with realtors that prequalifying prospective tenants before scheduling a tour was a huge time-suck and pain point for them. We had decided that this was the problem we were going to solve. What we wrongly assumed however, was that their communication happened over email and text.\n\nWhile that was true for most of the lifecycle of the realtor-client relationship, it was not the case for the prequalification step specifically (the part beginning with a prospective client clicking \"Request a Tour\" or \"I'm Interested\" on a Zillow listing, and ending with that client actually getting scheduled for a tour and meeting the listing agent in person). As we talked to more and more realtors, it became apparent to us that conversations during the prequalification step happened directly in Zillow.com's chat interface. Realtors would confirm their move-in date, whether or not they had pets, their credit score range, etc., before scheduling the tour. They would even sometimes meet up for the in-person tour without ever taking the conversation off of the Zillow platform to email/text.\n\nIt was clear that if we were to build something to automate prequalification, it would have to operate within the native Zillow chat. That led me to find Zillow's Leads API - which was well-enough documented and seemed relatively straightforward. However, it was not until further conversations with our beta testing clients that I would learn that most real estate agents weren't on a high enough paid tier with Zillow to even have access to this webhook integration for leads.  \n\nThis presented a challenge: realtors were almost exclusively prequalifying their leads directly on Zillow, but Zillow was not allowing us to integrate via API for their free and lower paying customers. \n\nWhat Zillow did do however for all clients, regardless of what plan they were on, was send them email notifications every single time they received a new lead or message on the platform. I would soon find out that we could use this simple email notification to get our AI-generated responses to populate directly into the Zillow platform, enabling us to build an AI agent that could both read and write to Zillow's native chat interface.\n\nThe Idea\n\nI asked some of our early beta testers to forward me a few of these notifications from Zillow, and as soon as I saw the words _\"You can also reply directly to this email\"_ at the bottom of the email, I realized there might be a way forward.\n\n \n\nWe could route all of these Zillow notification emails to our own mail server and generate/send responses on behalf of our realtor clients. After some quick testing, I validated that it did not matter what email address the reply came from. As long as it was sent to that randomly generated address (1dbfxvat8vtwuitucbxe0u4nu6@convo.zillow.com in the example below), it would propagate directly into the Zillow.com chat UI. We had everything we needed.\n\nThe workaround was so simple that I couldn't believe it actually worked. I remember being amazed at the time that you could build an entire application and AI agent that responded to Zillow leads _inside the platform_ just like the human real estate agent would, all while not even paying enough to use their official API integration.\n\nThis opened up a clear path forward for frontstep.ai, and we were able to build out the main features of the platform and AI agent. \n\nHow it Works\n\nFirst, we helped our beta testers to add a forwarding rule that would automatically route all emails from the @convo.zillow.com subdomain to our mail server address inbound@leads.frontstep.ai. \n\nThat forward email was then received by a mail server that we set up using Mailgun, which received emails and translated them into POST requests to a webhook endpoint that our deployed backend exposed. This webhook was then responsible for normalizing out the contents of the email, extracting the message content, the forwarder (our realtor client's email) and the zillow-generated email address that the server would use to send a response back, before pushing this normalized message onto a queue. \n\nThese normalized messages would then be processed by the MessageProcessor, which did most of the heavy-lifting. Every 30 seconds, it would pop all normalized messages off the queue, group them by Conversation and Lead if they already existed (i.e. this was a message for a pre-existing conversation) or create new ones if necessary, resolve the Property in the database that this Conversation was about or create a new one if necessary, mark qualification questions as answered (more on that below), generate a response based on the remaining unanswered questions, and finally, either generate and send an appropriate response based on the conversation context and the unanswered qualification questions, or mark the Lead and Conversation as fully qualified and trigger a separate code path to send a notification email over to the realtor that the lead was ready for a tour! \n\nHigh-Level Architecture\n\nBelow is a very high-level view of how this process worked from the Zillow email notification all the way to a response propagating back into Zillow.\n\n>Client: Email notification (lead inquiry)\n    Note over Client: Gmail forwarding ruleautomatically forwards\n    Client->>Mailgun: Forwarded email\n    Mailgun->>Webhook: POST /api/webhooks/mailgun(parsed email data)\n    Webhook->>Webhook: Parse email contents(extract lead info, message)\n    Webhook->>Queue: Store unprocessed message\n    Webhook-->>Mailgun: 200 OK\n    \n    Queue->>Processor: Process message\n    Processor->>Processor: Resolve conversation(find/create lead)\n    Processor->>Processor: Save message to DB\n    Processor->>AI: Generate response\n    \n    AI->>AI: Analyze conversation context\n    AI->>AI: Check unanswered questions\n    AI->>AI: Generate response with guardrails\n    AI-->>Processor: AI response content\n    \n    Processor->>Email: Send response\n    Email->>Lead: Deliver email/SMS\n    Email-->>Processor: Delivery confirmed\n    Processor->>Queue: Mark as processed`} />\n\nImportant Components \n\nHere's a more detailed look at how a few of the components above actually work. \n\nWebhook Handler\n\nThe webhook handler receives the parsed email data from Mailgun and performs initial processing:\n\n- Organization Resolving: Extracts the email that forwarded the message to identify which Organization (brokerage client out of ours) this lead/conversation belonged to.\n- Message Extraction: Pulls out the actual inquiry message from the lead\n- Message Queue: Enqueues the normalized, but unprocessed message in a message queue for asynchronous processing.\n\nThe handler responds quickly with a 200 OK to Mailgun, ensuring that requests don't hang or timeout, causing a storm of retries from Mailgun. In my design of this architecture, it was crucial for the webhook to respond _quickly_ with a success to Mailgun, because the Mailgun component was completely out of our control, and the platform offered limited observability and insight into how things like timeouts were configured.\n\nMessage Queue\n\nThe message queue decouples email ingestion from message processing. This design allows:\n\n- Reliability: If the MessageProcessor were unavailable for some reason, we would build a backlog of messages, but they would not be lost. \n- Scalability: In the future, multiple processors could consume messages in parallel, if we wanted to scale up the process to make it faster.\n- Resilience: Failed processing attempts can be retried without losing the original message.\n\nMessage Processor\n\nThe message processor polls normalized messages off the queue every 30 seconds and handles the core business logic:\n\n1. Conversation and Lead Resolution: Determines if this is a new lead or part of an existing conversation by matching contact information\n2. Marking Questions as Answered: Based on the questions that this Organization had configured globally, per-property, or per-lead, it would scan through those unanswered questions and mark certain questions as answered to update qualification progress depending on the content of the normalized message.\n2. Update Conversation State: Saves the incoming message to the database, maintaining conversation history. Also updates the conversation object by recording answers to specific qualification questions or updating overall status if fully qualified.\n3. AI Integration: Sends the conversation context to the AI service to generate an appropriate response.\n\nAI Service\n\nThe AI service is responsible for generating intelligent, context-aware responses:\n\n- Context Analysis: Reviews the entire conversation history to understand what has been discussed\n- Question Tracking: Identifies which qualification questions have been answered and which remain unanswered\n- Response Generation: Creates a natural, helpful response that either asks the next unanswered question or acknowledges completed information\n- Guardrails: Ensures responses are appropriate, professional, and aligned with the realtor's configured questions. More on this below.\n\nEmail Service\n\nOnce the AI generates a response, the email service handles delivery:\n\n- Channel Selection: Determines whether to send via email or SMS based on the lead's preferences and the conversation history (for Zillow leads, this was email).\n- Message Delivery: Sends the response through the appropriate channel (I used Resend for email and Twilio for SMS).\n- Delivery Confirmation: Tracks delivery status and confirms successful transmission\n\nAfter successful delivery, the processor marks the message as processed in the queue, completing the cycle.\n\nDesign Decisions\n\nAsynchronous Processing\n\nBy using a message queue, we ensure that email ingestion (which needs to respond quickly to Mailgun) is decoupled from message processing (which involves AI generation and can take longer). This prevents webhook timeouts and allows the system to handle bursts of incoming leads. I was also worried that in the future we would want to scale up the message processor, so decoupling the webhook and the processor by placing a queue between them would allow me to add as many listeners to that queue as I wanted. \n\nAI Guardrails\n\nFrom the very beginning, Noah and I were thinking about FHA (Fair Housing Act) laws and wanted to make sure that frontstep.ai would _never_ say anything it wasn't supposed to say (e.g. asking about race, income, disability, or any other protected classes that you aren't allowed to ask about in the prequalification process). I found OpenAI's Guardrails to be very effective and easy to use for this purpose. We had several guardrails that every message we generated had to pass through: 1. It could not ask about any protected classes under FHA, 2. It could not make anything up about the property that it did not explicitly know from the property notes stored in the database (e.g. number of bedrooms or bathrooms), and 3. It could not go off the rails and start saying anything it wanted, it had to reply by concisely acknowledging their answer, and asking a new question. In the 300+ conversations frontstep.ai handled, it never violated any of these 3 important guardrails we put in place.\n\nResult\n\nThis architecture enables Frontstep to process leads 24/7, respond instantly to inquiries, and maintain conversation context across multiple interactions. One in three leads complete the full qualification process without any manual intervention from the realtor.  We believe that this qualification rate can be attributed to the fact that frontstep.ai responds in a matter of seconds, and that response comes through to the Zillow platform, while the prospective tenant is still scrolling on the app.\n\nTakeaways \nIt makes sense why Zillow built a fence around their data and made it tough to integrate directly - this seems to be especially common in the Real Estate SaaS space. It also makes sense why they allow realtors to reply directly to the email and have those populate in the dashboard, as realtors are always on the go and living out of their inbox. One thing that I still don't understand though, is why Zillow didn't implement a simple step to verify that the email address _responding_ to the lead notification email was the same as the one it was _sent_ to...\n\nI learned that app \"integrations\" can take many forms under the hood. As developers, we appreciate and a lot of the times expect that these be made possible via well-documented, clean, and straightforward APIs, but sometimes that isn't an option. At the end of the day, the only thing that really matters is how the customers interact with the app and whether or not it solves their problem in a convenient way. In the case of frontstep.ai, we were able to build a system that was very easy to use and effectively ran on autopilot once set up. We tried to keep the technical details minimal unless clients asked...\n\n: We even had a meeting with a couple people from Zillow Group, where we tried to get some sort of deal or exception to this rule. That unsurprisingly didn't go anywhere. We were two 22 year olds with 0 paying customers and hardly even a working prototype.\n\n: This example Zillow notification email was provided to us by our first beta testing client, JR Associates.\n\n: As of January 4 2026, frontstep.ai has fully qualified 118 of the total 336 leads that it saw for an average of 34% qualification across all teams using the platform."
+  },
+  {
+    "title": "frontstep.ai",
+    "href": "/projects/frontstep",
+    "category": "Project",
+    "text": "Full-stack platform and AI agent for real estate lead prequalification. Responds instantly inside Zillow's native chat via a custom email-to-chat integration. Built with FHA-compliant guardrails. Acquired by LeaseHub in 2026."
+  },
+  {
+    "title": "findrx.org",
+    "href": "/projects/findrx",
+    "category": "Project",
+    "text": "Landing page, dashboard, and intake form all rebuilt in one weekend for FindRx, a company that helps patients find medications in shortage."
+  },
+  {
+    "title": "boilerbase.io",
+    "href": "/projects/boilerbase",
+    "category": "Project",
+    "text": "Open-source boilerplate generator and community marketplace. Create custom full-stack SaaS templates or explore community-reviewed boilerplates. Features smart code generation, transparent community ratings, and modern stack support."
+  },
+  {
+    "title": "makefireplace.com",
+    "href": "/projects/fireplace",
+    "category": "Project",
+    "text": "Community management platform for college student organizations. Built with React Native and Next.js, featuring organization discovery, member management, and community engagement tools."
+  },
+  {
+    "title": "intellibet.io",
+    "href": "/projects/intellibet",
+    "category": "Project",
+    "text": "AI-powered sports betting sentiment analysis tool featuring customizable watch lists, real-time sentiment tracking, and intuitive dashboard display of sentiment data."
+  },
+  {
+    "title": "File System",
+    "href": "/projects/file-system",
+    "category": "Project",
+    "text": "Built a complete file system using 1MB virtual disk that supports all basic file/directory operations."
+  },
+  {
+    "title": "GeoGenius",
+    "href": "/projects/geogenius",
+    "category": "Project",
+    "text": "Country guessing game that also supports user authentication, search of users and countries with filters, following between users, travel bucket list creation, profile management, global leaderboard display, and more."
+  },
+  {
+    "title": "Unix Shell",
+    "href": "/projects/unix-shell",
+    "category": "Project",
+    "text": "Command-line interface written in C for Unix-like systems that supports all standard commands and advanced shell functionalities like sequencing, piping, and input/output redirection."
+  },
+  {
+    "title": "Photoshop Clone",
+    "href": "/projects/photoshop",
+    "category": "Project",
+    "text": "Image editing application that supports 10 advanced image operations and uploading/saving files to local machine."
+  },
+  {
+    "title": "Lax-Match",
+    "href": "/projects/lax-match",
+    "category": "Project",
+    "text": "Interactive React quiz app that recommends a specific lacrosse stick to the user based on in-game tendencies and playstyle."
+  }
+]

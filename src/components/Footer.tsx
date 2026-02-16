@@ -4,7 +4,10 @@ import { socials } from "@/constants/socials";
 
 export const Footer = () => {
   return (
-    <div className="p-4 text-xs text-neutral-500 border-t border-neutral-100">
+    <div
+      className="px-4 md:px-6 py-4 text-sm border-t"
+      style={{ color: "var(--text-secondary)", borderColor: "var(--border)" }}
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           {socials.map((social, index) => {
@@ -15,9 +18,16 @@ export const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-neutral-600 transition-colors"
+                className="transition-all duration-200 hover:-rotate-12"
+                style={{ color: "var(--text-tertiary)" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--text-primary)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "var(--text-tertiary)")
+                }
               >
-                <Icon size={18} />
+                <Icon size={20} />
               </a>
             );
           })}

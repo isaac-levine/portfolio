@@ -35,31 +35,23 @@ export const SingleProject = ({ project }: { project: Project }) => {
           width="1000"
           className="rounded-md object-contain"
         />
-        <div className="absolute bottom-0 bg-white h-40 w-full [mask-image:linear-gradient(to_bottom,transparent,white)]" />
+        <div
+          className="absolute bottom-0 h-40 w-full"
+          style={{
+            maskImage: "linear-gradient(to bottom, transparent, white)",
+            WebkitMaskImage: "linear-gradient(to bottom, transparent, white)",
+            backgroundColor: "var(--bg-primary)",
+          }}
+        />
       </motion.div>
-      {/* <div className="flex flex-row justify-center my-8 flex-wrap">
-        {project.images.map((image, idx) => (
-          <button
-            onClick={() => setActiveImage(image)}
-            key={`image-thumbnail-${idx}`}
-          >
-            <Image
-              src={image}
-              alt="project thumbnail"
-              height="1000"
-              width="1000"
-              className="h-14 w-16 md:h-40 md:w-60 object-cover object-top mr-4 mb-r border rounded-lg border-neutral-100"
-            />
-          </button>
-        ))}
-      </div> */}
       <div className="flex lg:flex-row justify-between items-center flex-col mt-20">
         <Heading className="font-black mb-2 pb-1"> {project.title}</Heading>
         <div className="flex space-x-2 md:mb-1 mt-2 md:mt-0">
           {project.stack?.map((stack: string) => (
             <span
               key={stack}
-              className="text-xs  md:text-xs lg:text-xs bg-gray-50 px-2 py-1 rounded-sm text-secondary"
+              className="text-xs md:text-xs lg:text-xs px-2 py-1 rounded-sm text-secondary"
+              style={{ backgroundColor: "var(--bg-secondary)" }}
             >
               {stack}
             </span>
@@ -69,7 +61,7 @@ export const SingleProject = ({ project }: { project: Project }) => {
       <div>
         <Paragraph className="max-w-xl mt-4">{project.description}</Paragraph>
       </div>
-      <div className="prose prose-sm md:prose-base max-w-none text-neutral-600">
+      <div className="prose prose-sm md:prose-base max-w-none" style={{ color: "var(--text-secondary)" }}>
         {project?.content}
       </div>
 
@@ -86,9 +78,9 @@ export const SingleProject = ({ project }: { project: Project }) => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
         >
           <path d="M5 12l14 0"></path>

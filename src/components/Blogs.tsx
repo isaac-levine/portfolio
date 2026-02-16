@@ -1,10 +1,7 @@
 "use client";
 import { Blog } from "@/types/blog";
-import Image from "next/image";
 import React, { useState } from "react";
-import { Heading } from "./Heading";
-import { Paragraph } from "./Paragraph";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { format } from "date-fns";
 
@@ -17,19 +14,27 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
           key={blog.slug}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
+          whileTap={{ scale: 0.97 }}
           transition={{ duration: 0.2, delay: index * 0.1 }}
         >
           <Link
             href={`/blog/${blog.slug}`}
-            className="group flex flex-col sm:flex-row sm:items-center sm:justify-between 
-              hover:bg-gray-50/50 rounded-lg transition-all duration-200 p-4 hover:scale-[1.02]"
+            className="group flex flex-col sm:flex-row sm:items-center sm:justify-between
+              rounded-lg transition-all duration-200 p-4 hover:scale-[1.02] no-underline"
+            style={{ color: "var(--text-primary)" }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "var(--card-hover)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "transparent")
+            }
           >
-            <h1 className="text-base text-xl font-semibold text-gray-700 group-hover:text-primary">
+            <h1 className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>
               {blog.title}
             </h1>
 
             <div className="flex items-center">
-              <span className="text-secondary mt-1 sm:mt-0 text-sm sm:text-base">
+              <span className="mt-1 sm:mt-0 text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>
                 {format(new Date(`${blog.date}T12:00:00Z`), "MMMM d, yyyy")}
               </span>
             </div>

@@ -11,22 +11,17 @@ import {
 export const navlinks = [
   {
     href: "/",
-    label: "home",
+    label: "About",
     icon: IconHome,
   },
   {
-    href: "/projects",
-    label: "projects",
-    icon: IconFolder,
-  },
-  {
     href: "/blog",
-    label: "blog",
+    label: "Posts",
     icon: IconFileText,
   },
   {
     href: "/contact",
-    label: "contact",
+    label: "Contact",
     icon: IconMail,
   },
 ];
