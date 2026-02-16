@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "./ThemeProvider";
 
 export function Mermaid({ chart }: { chart: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isClient, setIsClient] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     setIsClient(true);
@@ -16,16 +18,16 @@ export function Mermaid({ chart }: { chart: string }) {
     const renderMermaid = async () => {
       try {
         const mermaid = (await import("mermaid")).default;
-        
+
         mermaid.initialize({
           startOnLoad: true,
-          theme: "default",
+          theme: theme === "dark" ? "dark" : "default",
           securityLevel: "loose",
         });
-        
+
         const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
         const element = ref.current;
-        
+
         if (element) {
           const result = await mermaid.render(id, chart);
           element.innerHTML = result.svg;
@@ -36,7 +38,7 @@ export function Mermaid({ chart }: { chart: string }) {
     };
 
     renderMermaid();
-  }, [chart, isClient]);
+  }, [chart, isClient, theme]);
 
   if (!isClient) {
     return <div className="my-8 flex justify-center overflow-x-auto p-4 rounded shadow-[0_0_15px_rgba(0,0,0,0.15)]" />;
@@ -44,4 +46,3 @@ export function Mermaid({ chart }: { chart: string }) {
 
   return <div ref={ref} className="my-8 flex justify-center overflow-x-auto p-4 rounded shadow-[0_0_15px_rgba(0,0,0,0.15)]" />;
 }
-
