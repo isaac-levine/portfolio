@@ -58,10 +58,7 @@ export function BlogLayout({
           <time
             dateTime={meta.date}
             className="mt-3 text-sm"
-            style={{
-              color: "var(--text-secondary)",
-              viewTransitionName: `blog-date-${slug}`,
-            }}
+            style={{ color: "var(--text-secondary)" }}
           >
             {formatDate(meta.date)}
           </time>

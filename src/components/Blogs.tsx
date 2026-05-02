@@ -44,10 +44,7 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
             <div className="flex items-center">
               <span
                 className="mt-1 sm:mt-0 text-sm sm:text-base"
-                style={{
-                  color: "var(--text-secondary)",
-                  viewTransitionName: `blog-date-${blog.slug}`,
-                }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 {format(new Date(`${blog.date}T12:00:00Z`), "MMMM d, yyyy")}
               </span>
