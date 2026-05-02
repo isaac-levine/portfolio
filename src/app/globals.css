@@ -117,11 +117,11 @@ a:hover {
 /* Feather an image's edges into its surrounding background */
 .feather-edges {
   mask-image:
-    linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, black 7%, black 93%, transparent 100%);
+    linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%);
   -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, black 7%, black 93%, transparent 100%);
+    linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%);
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }
