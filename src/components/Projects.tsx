@@ -26,16 +26,13 @@ export const Projects = () => {
             }}
           >
             <div className="glass-card group flex flex-col space-y-3 p-3 max-w-xl h-[440px]">
-              <div
-                className="relative w-full h-[280px] rounded-lg overflow-hidden"
-                style={{ backgroundColor: "var(--bg-secondary)" }}
-              >
+              <div className="relative w-full h-[280px] overflow-hidden">
                 <Image
                   src={project.thumbnail}
                   alt={`${project.title} thumbnail`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain hover:scale-[1.02] transition-transform duration-200"
+                  className="object-contain feather-edges transition-transform duration-200 group-hover:scale-[1.02]"
                 />
               </div>
               <div className="flex flex-col justify-between w-full h-full">
