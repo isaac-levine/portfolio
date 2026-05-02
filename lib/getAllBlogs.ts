@@ -3,7 +3,7 @@ import * as path from "path";
 
 async function importBlog(blogFileNames: any) {
   let { meta, default: component } = await import(
-    `src/app/blog/${blogFileNames}`
+    `@/app/blog/${blogFileNames}`
   );
   return {
     slug: blogFileNames.replace(/(\/content)?\.mdx$/, ""),
