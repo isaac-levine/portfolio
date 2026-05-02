@@ -30,10 +30,10 @@ export const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors duration-200"
+                className="transition-all duration-200 hover:-rotate-12"
                 style={{ color: "var(--text-tertiary)" }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--text-primary)")
+                  (e.currentTarget.style.color = "var(--accent)")
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.color = "var(--text-tertiary)")

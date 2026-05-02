@@ -26,7 +26,7 @@ export default function Projects() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-500 hover:text-neutral-800 transition-all hover:scale-110"
+              className="text-[color:var(--text-tertiary)] hover:text-[color:var(--accent)] transition-all duration-200 hover:-rotate-12"
             >
               <Icon size={24} />
             </a>
