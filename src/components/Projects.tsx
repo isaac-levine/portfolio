@@ -25,21 +25,7 @@ export const Projects = () => {
               ease: "easeOut",
             }}
           >
-            <div
-              className="group flex flex-col space-y-3
-              rounded-xl transition-all duration-200 p-3
-              shadow-sm hover:shadow-md max-w-xl h-[440px]"
-              style={{
-                border: "1px solid var(--border)",
-                backgroundColor: "var(--card-bg)",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = "var(--card-hover)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = "var(--card-bg)")
-              }
-            >
+            <div className="glass-card group flex flex-col space-y-3 p-3 max-w-xl h-[440px]">
               <div
                 className="relative w-full h-[280px] rounded-lg overflow-hidden"
                 style={{ backgroundColor: "var(--bg-secondary)" }}
