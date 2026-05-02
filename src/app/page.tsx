@@ -18,7 +18,7 @@ export default function Home() {
             Isaac Levine
           </Heading>
           <Paragraph className="max-w-xl mt-4">
-            I&apos;m a software developer living in Boston, MA. I previously co-founded <a href="https://frontstep.ai" className="underline" target="_blank">frontstep.ai</a>, which was acquired by LeaseHub in January 2026.
+            I&apos;m a software developer living in Boston, MA. I previously co-founded <a href="https://frontstep.ai" className="underline" target="_blank">frontstep.ai</a>, which was acquired by R&amp;M Capital in April 2026.
           </Paragraph>
           <Paragraph className="max-w-xl mt-4">
             Today, I work as a software engineer at CarGurus, where I help build the product data platform.

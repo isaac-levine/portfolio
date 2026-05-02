@@ -45,7 +45,7 @@ export const projects: Project[] = [
     href: "https://frontstep.ai?utm_source=portfolio",
     title: "frontstep.ai",
     description:
-      "Full-stack platform and AI agent for real estate lead prequalification. Responds instantly inside Zillow's native chat via a custom email-to-chat integration. Built with FHA-compliant guardrails. Acquired by LeaseHub in 2026.",
+      "Full-stack platform and AI agent for real estate lead prequalification. Responds instantly inside Zillow's native chat via a custom email-to-chat integration. Built with FHA-compliant guardrails. Acquired by R&M Capital in April 2026.",
     thumbnail: frontstepImg,
     stack: [
       "React.js",
