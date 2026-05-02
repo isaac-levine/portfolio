@@ -62,9 +62,15 @@ export const Projects = () => {
                       {project.href && (
                         <Link
                           href={project.href}
-                          className="p-2 rounded-full transition-all hover:scale-110"
+                          className="p-2 rounded-full transition-all duration-200 hover:-rotate-12"
                           style={{ color: "var(--text-secondary)" }}
                           target="_blank"
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = "var(--accent)")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "var(--text-secondary)")
+                          }
                         >
                           <FaLink className="w-4 h-4" />
                         </Link>
@@ -72,9 +78,15 @@ export const Projects = () => {
                       {project.demo && (
                         <Link
                           href={project.demo}
-                          className="p-2 rounded-full transition-all hover:scale-110"
+                          className="p-2 rounded-full transition-all duration-200 hover:-rotate-12"
                           style={{ color: "var(--text-secondary)" }}
                           target="_blank"
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = "var(--accent)")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "var(--text-secondary)")
+                          }
                         >
                           <FaYoutube className="w-4 h-4" />
                         </Link>
@@ -82,9 +94,15 @@ export const Projects = () => {
                       {project.githubLink && (
                         <Link
                           href={project.githubLink}
-                          className="p-2 rounded-full transition-all hover:scale-110"
+                          className="p-2 rounded-full transition-all duration-200 hover:-rotate-12"
                           style={{ color: "var(--text-secondary)" }}
                           target="_blank"
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = "var(--accent)")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "var(--text-secondary)")
+                          }
                         >
                           <FaGithub className="w-4 h-4" />
                         </Link>
