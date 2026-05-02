@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { EasterEggs } from "@/components/EasterEggs";
 import { ProgressBar } from "@/components/ProgressBar";
+import { ViewTransitions } from "next-view-transitions";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,42 +27,44 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (!theme) {
-                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  }
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch(e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body
-        className={twMerge(inter.className, "antialiased min-h-screen")}
-      >
-        <ThemeProvider>
-          <TopNav />
-          <div className="pt-[68px]">
-            <div
-              className="max-w-5xl mx-auto min-h-[calc(100vh-68px)] flex flex-col"
-            >
-              <div className="flex-1">{children}</div>
-              <Footer />
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  try {
+                    var theme = localStorage.getItem('theme');
+                    if (!theme) {
+                      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    }
+                    document.documentElement.setAttribute('data-theme', theme);
+                  } catch(e) {}
+                })();
+              `,
+            }}
+          />
+        </head>
+        <body
+          className={twMerge(inter.className, "antialiased min-h-screen")}
+        >
+          <ThemeProvider>
+            <TopNav />
+            <div className="pt-[68px]">
+              <div
+                className="max-w-5xl mx-auto min-h-[calc(100vh-68px)] flex flex-col"
+              >
+                <div className="flex-1">{children}</div>
+                <Footer />
+              </div>
             </div>
-          </div>
-        </ThemeProvider>
-        <Analytics />
-        <EasterEggs />
-        <ProgressBar />
-      </body>
-    </html>
+          </ThemeProvider>
+          <Analytics />
+          <EasterEggs />
+          <ProgressBar />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
