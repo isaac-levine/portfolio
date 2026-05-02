@@ -10,7 +10,7 @@ export const Footer = () => {
     >
       <div className="max-w-4xl w-full mx-auto px-4 md:px-10 flex items-center justify-between">
         <div>
-          <span className="font-semibold">{new Date().getFullYear()}</span>
+          {`© ${new Date().getFullYear()} Isaac Levine`}
           {" — "}
           <a
             className="underline-offset-4 hover:underline"
