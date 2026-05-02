@@ -16,9 +16,14 @@ export const Projects = () => {
         {projects.map((project: Project, idx: number) => (
           <motion.div
             key={project.slug}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.2, delay: idx * 0.1 }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{
+              duration: 0.25,
+              delay: Math.min(idx * 0.04, 0.32),
+              ease: "easeOut",
+            }}
           >
             <div
               className="group flex flex-col space-y-3
