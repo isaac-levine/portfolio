@@ -9,15 +9,12 @@ import Image from "next/image";
 export default function Home() {
   return (
     <Container>
+      <Heading as="h1" className="font-black mb-4">
+        Isaac Levine
+      </Heading>
       <div className="flex justify-between items-center gap-8">
         <div className="flex-1">
-          <Heading
-            as="h1"
-            className="font-black text-2xl md:text-2xl lg:text-2xl mb-4"
-          >
-            Isaac Levine
-          </Heading>
-          <Paragraph className="max-w-xl mt-4">
+          <Paragraph className="max-w-xl">
             I&apos;m a software developer living in Boston, MA. I previously co-founded <a href="https://frontstep.ai" className="underline" target="_blank">frontstep.ai</a>, which was acquired by R&amp;M Capital in April 2026.
           </Paragraph>
           <Paragraph className="max-w-xl mt-4">
@@ -39,7 +36,7 @@ export default function Home() {
         as="h2"
         className="font-black text-lg md:text-lg lg:text-lg mt-10 mb-4"
       >
-        Some recent projects of mine
+        Recent projects
       </Heading>
       <Projects />
       <TechStack />
