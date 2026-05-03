@@ -12,16 +12,12 @@ export function EasterEggs() {
     );
     console.log("\n");
     console.log(
-      "%cLike poking around in the dev tools?",
-      "font-size: 14px; color: #666;"
-    );
-    console.log(
       "%cWe should chat → isaacmlevine4@gmail.com",
       "font-size: 14px; color: #fff; background: linear-gradient(90deg, #3b82f6, #8b5cf6); padding: 10px 16px; border-radius: 6px; margin: 4px 0;"
     );
     console.log("\n");
     console.log(
-      "%c🎮 Psst... try: ↑ ↑ ↓ ↓ ← → ← → b a",
+      "%c🤫 try: ↑ ↑ ↓ ↓ ← → ← → b a",
       "font-size: 11px; color: #999; font-style: italic; padding: 4px 0;"
     );
 
