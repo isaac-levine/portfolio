@@ -16,7 +16,12 @@ export function TopNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMac, setIsMac] = useState(false);
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    setIsMac(/Mac/.test(navigator.userAgent));
+  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -56,7 +61,6 @@ export function TopNav() {
 
   const isActive = (href: string) => pathname === href;
   const isBlogPost = pathname?.startsWith("/blog/");
-  const isMac = typeof navigator !== "undefined" && /Mac/.test(navigator.userAgent);
   const modKey = isMac ? "\u2318" : "Ctrl+";
 
   return (
