@@ -15,7 +15,7 @@ export default function Home() {
       <div className="flex justify-between items-center gap-8">
         <div className="flex-1">
           <Paragraph className="max-w-xl">
-            I&apos;m a software developer living in Boston, MA. I previously co-founded <a href="https://frontstep.ai" className="underline" target="_blank">frontstep.ai</a>, which was acquired by R&amp;M Capital in April 2026.
+            I&apos;m a software engineer living in Boston, MA. I previously co-founded <a href="https://frontstep.ai" className="underline" target="_blank">frontstep.ai</a>, which was acquired by R&amp;M Capital in April 2026.
           </Paragraph>
           <Paragraph className="max-w-xl mt-4">
             Today, I work as a software engineer at CarGurus, where I help build the product data platform.
