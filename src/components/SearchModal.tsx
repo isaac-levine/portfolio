@@ -215,20 +215,27 @@ export function SearchModal({
                     const snippet = query.trim()
                       ? getSnippet(item.text, query)
                       : null;
+                    const isSelected = i === selectedIndex;
 
                     return (
                       <button
                         key={item.href}
                         onClick={() => navigate(item.href)}
                         onMouseEnter={() => setSelectedIndex(i)}
-                        className="w-full flex flex-col px-4 py-2.5 text-left text-sm transition-colors"
+                        className="relative w-full flex flex-col px-4 py-2.5 text-left text-sm transition-colors duration-75"
                         style={{
-                          backgroundColor:
-                            i === selectedIndex
-                              ? "var(--bg-secondary)"
-                              : "transparent",
+                          backgroundColor: isSelected
+                            ? "var(--bg-tertiary)"
+                            : "transparent",
                         }}
                       >
+                        {isSelected && (
+                          <span
+                            aria-hidden
+                            className="absolute left-0 top-1.5 bottom-1.5 w-[2px] rounded-r-full"
+                            style={{ backgroundColor: "var(--accent)" }}
+                          />
+                        )}
                         <div className="flex items-center justify-between w-full">
                           <span style={{ color: "var(--text-primary)" }}>
                             {highlightMatch(item.title, query)}
@@ -253,6 +260,52 @@ export function SearchModal({
                   })
                 )}
               </div>
+
+              {/* Footer with keyboard hints */}
+              {filtered.length > 0 && (
+                <div
+                  className="hidden sm:flex items-center gap-4 px-4 py-2 border-t text-[11px]"
+                  style={{
+                    borderColor: "var(--border)",
+                    color: "var(--text-tertiary)",
+                    backgroundColor: "var(--bg-secondary)",
+                  }}
+                >
+                  <span className="flex items-center gap-1.5">
+                    <kbd
+                      className="px-1.5 py-0.5 rounded font-mono text-[10px]"
+                      style={{
+                        backgroundColor: "var(--card-bg)",
+                        border: "1px solid var(--border)",
+                      }}
+                    >
+                      ↑
+                    </kbd>
+                    <kbd
+                      className="px-1.5 py-0.5 rounded font-mono text-[10px]"
+                      style={{
+                        backgroundColor: "var(--card-bg)",
+                        border: "1px solid var(--border)",
+                      }}
+                    >
+                      ↓
+                    </kbd>
+                    navigate
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <kbd
+                      className="px-1.5 py-0.5 rounded font-mono text-[10px]"
+                      style={{
+                        backgroundColor: "var(--card-bg)",
+                        border: "1px solid var(--border)",
+                      }}
+                    >
+                      ↵
+                    </kbd>
+                    open
+                  </span>
+                </div>
+              )}
             </div>
           </motion.div>
         </>
