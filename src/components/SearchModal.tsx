@@ -32,7 +32,7 @@ function getSnippet(text: string, query: string, maxLen = 120): string | null {
   return snippet;
 }
 
-function highlightMatch(text: string, query: string) {
+function highlightMatch(text: string, query: string, selected = false) {
   if (!query.trim()) return text;
   const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
   const parts = text.split(regex);
@@ -41,7 +41,7 @@ function highlightMatch(text: string, query: string) {
       <mark
         key={i}
         className="bg-transparent font-semibold"
-        style={{ color: "var(--accent)" }}
+        style={{ color: selected ? "#ffffff" : "var(--accent)" }}
       >
         {part}
       </mark>
@@ -138,39 +138,42 @@ export function SearchModal({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
             className="fixed inset-0 z-[100]"
-            style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
+            style={{ backgroundColor: "rgba(0,0,0,0.25)" }}
             onClick={onClose}
           />
 
           {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.15 }}
+          <div
             className="fixed inset-0 z-[101] flex items-start justify-center pt-[20vh]"
             onClick={onClose}
           >
-            <div
-              className="w-[calc(100%-2rem)] max-w-xl rounded-xl overflow-hidden shadow-2xl"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: -12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.97, y: -8 }}
+              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+              className="w-[calc(100%-2rem)] max-w-xl rounded-3xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
               style={{
-                backgroundColor: "var(--card-bg)",
-                border: "1px solid var(--border)",
+                background: `linear-gradient(180deg, var(--glass-tint-top) 0%, var(--glass-tint-bottom) 55%), var(--spotlight-bg)`,
+                backdropFilter: "blur(24px) saturate(180%)",
+                WebkitBackdropFilter: "blur(24px) saturate(180%)",
+                border: "1px solid var(--glass-edge)",
+                boxShadow: `inset 0 1px 0 var(--glass-highlight), 0 1px 2px var(--glass-shadow-deep), 0 24px 60px -16px var(--glass-shadow), 0 48px 96px -32px var(--glass-shadow)`,
               }}
             >
               {/* Search input */}
               <div
-                className="flex items-center gap-3 px-4 py-3 border-b"
-                style={{ borderColor: "var(--border)" }}
+                className="flex items-center gap-3.5 px-5 py-4 border-b"
+                style={{ borderColor: "var(--spotlight-divider)" }}
               >
                 <svg
-                  width="16"
-                  height="16"
+                  width="22"
+                  height="22"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="2.25"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   style={{ color: "var(--text-tertiary)", flexShrink: 0 }}
@@ -181,18 +184,18 @@ export function SearchModal({
                 <input
                   ref={inputRef}
                   type="text"
-                  placeholder="Search across all posts and pages..."
+                  placeholder="Search"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="flex-1 bg-transparent text-sm outline-none"
+                  className="flex-1 bg-transparent text-lg outline-none placeholder:opacity-60"
                   style={{ color: "var(--text-primary)" }}
                 />
                 <kbd
-                  className="hidden sm:inline text-[10px] px-1.5 py-0.5 rounded font-mono"
+                  className="hidden sm:inline text-[10px] px-1.5 py-0.5 rounded-md font-mono"
                   style={{
-                    backgroundColor: "var(--bg-secondary)",
+                    backgroundColor: "transparent",
                     color: "var(--text-tertiary)",
-                    border: "1px solid var(--border)",
+                    border: "1px solid var(--spotlight-divider)",
                   }}
                 >
                   ESC
@@ -200,7 +203,10 @@ export function SearchModal({
               </div>
 
               {/* Results */}
-              <div ref={resultsRef} className="max-h-[320px] overflow-y-auto py-2">
+              <div
+                ref={resultsRef}
+                className="max-h-[320px] overflow-y-auto px-2 py-2"
+              >
                 {filtered.length === 0 ? (
                   <div
                     className="px-4 py-8 text-center text-sm"
@@ -222,27 +228,30 @@ export function SearchModal({
                         key={item.href}
                         onClick={() => navigate(item.href)}
                         onMouseEnter={() => setSelectedIndex(i)}
-                        className="relative w-full flex flex-col px-4 py-2.5 text-left text-sm transition-colors duration-75"
+                        className="w-full flex flex-col px-3 py-2.5 text-left text-sm rounded-xl transition-colors duration-75"
                         style={{
                           backgroundColor: isSelected
-                            ? "var(--bg-tertiary)"
+                            ? "var(--accent)"
                             : "transparent",
                         }}
                       >
-                        {isSelected && (
-                          <span
-                            aria-hidden
-                            className="absolute left-0 top-1.5 bottom-1.5 w-[2px] rounded-r-full"
-                            style={{ backgroundColor: "var(--accent)" }}
-                          />
-                        )}
                         <div className="flex items-center justify-between w-full">
-                          <span style={{ color: "var(--text-primary)" }}>
-                            {highlightMatch(item.title, query)}
+                          <span
+                            style={{
+                              color: isSelected
+                                ? "#ffffff"
+                                : "var(--text-primary)",
+                            }}
+                          >
+                            {highlightMatch(item.title, query, isSelected)}
                           </span>
                           <span
                             className="text-xs ml-3 flex-shrink-0"
-                            style={{ color: "var(--text-tertiary)" }}
+                            style={{
+                              color: isSelected
+                                ? "rgba(255,255,255,0.75)"
+                                : "var(--text-tertiary)",
+                            }}
                           >
                             {item.category}
                           </span>
@@ -250,9 +259,13 @@ export function SearchModal({
                         {snippet && (
                           <span
                             className="text-xs mt-1 line-clamp-2"
-                            style={{ color: "var(--text-secondary)" }}
+                            style={{
+                              color: isSelected
+                                ? "rgba(255,255,255,0.85)"
+                                : "var(--text-secondary)",
+                            }}
                           >
-                            {highlightMatch(snippet, query)}
+                            {highlightMatch(snippet, query, isSelected)}
                           </span>
                         )}
                       </button>
@@ -264,28 +277,25 @@ export function SearchModal({
               {/* Footer with keyboard hints */}
               {filtered.length > 0 && (
                 <div
-                  className="hidden sm:flex items-center gap-4 px-4 py-2 border-t text-[11px]"
+                  className="hidden sm:flex items-center gap-4 px-5 py-2 border-t text-[11px]"
                   style={{
-                    borderColor: "var(--border)",
+                    borderColor: "var(--spotlight-divider)",
                     color: "var(--text-tertiary)",
-                    backgroundColor: "var(--bg-secondary)",
                   }}
                 >
                   <span className="flex items-center gap-1.5">
                     <kbd
-                      className="px-1.5 py-0.5 rounded font-mono text-[10px]"
+                      className="px-1.5 py-0.5 rounded-md font-mono text-[10px]"
                       style={{
-                        backgroundColor: "var(--card-bg)",
-                        border: "1px solid var(--border)",
+                        border: "1px solid var(--spotlight-divider)",
                       }}
                     >
                       ↑
                     </kbd>
                     <kbd
-                      className="px-1.5 py-0.5 rounded font-mono text-[10px]"
+                      className="px-1.5 py-0.5 rounded-md font-mono text-[10px]"
                       style={{
-                        backgroundColor: "var(--card-bg)",
-                        border: "1px solid var(--border)",
+                        border: "1px solid var(--spotlight-divider)",
                       }}
                     >
                       ↓
@@ -294,10 +304,9 @@ export function SearchModal({
                   </span>
                   <span className="flex items-center gap-1.5">
                     <kbd
-                      className="px-1.5 py-0.5 rounded font-mono text-[10px]"
+                      className="px-1.5 py-0.5 rounded-md font-mono text-[10px]"
                       style={{
-                        backgroundColor: "var(--card-bg)",
-                        border: "1px solid var(--border)",
+                        border: "1px solid var(--spotlight-divider)",
                       }}
                     >
                       ↵
@@ -306,8 +315,8 @@ export function SearchModal({
                   </span>
                 </div>
               )}
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>
