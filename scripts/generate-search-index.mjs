@@ -65,6 +65,8 @@ for (const folder of blogFolders) {
   if (!fs.existsSync(mdxPath)) continue;
 
   const raw = fs.readFileSync(mdxPath, "utf-8");
+  if (/hidden:\s*true/.test(raw)) continue;
+
   const meta = extractMeta(raw);
   const text = stripMdx(raw);
 

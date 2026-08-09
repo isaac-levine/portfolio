@@ -18,6 +18,7 @@ export async function getAllBlogs() {
   });
 
   let blogs = await Promise.all(blogFileNames.map(importBlog));
+  blogs = blogs.filter((blog) => !blog.hidden);
 
   return blogs.sort((a, b) => {
     const dateA = new Date(a.date);
