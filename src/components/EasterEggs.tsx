@@ -7,12 +7,12 @@ export function EasterEggs() {
     // Console easter egg
     console.log("\n");
     console.log(
-      "%c👋 Hey there!",
+      "%c👋 Hey",
       "font-size: 28px; font-weight: bold; color: #3b82f6;"
     );
     console.log("\n");
     console.log(
-      "%cWe should chat → isaacmlevine4@gmail.com",
+      "%cContact me → isaacmlevine4@gmail.com",
       "font-size: 14px; color: #fff; background: linear-gradient(90deg, #3b82f6, #8b5cf6); padding: 10px 16px; border-radius: 6px; margin: 4px 0;"
     );
     console.log("\n");
