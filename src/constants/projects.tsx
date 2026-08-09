@@ -40,6 +40,7 @@ export const projects: Project[] = [
       "PostgreSQL",
     ],
     slug: "dealwire",
+    demo: "https://www.youtube.com/watch?v=rsp4EXZayYY",
   },
   {
     href: "https://frontstep.ai?utm_source=portfolio",
